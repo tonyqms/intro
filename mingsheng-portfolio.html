@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mingsheng Qi, Ph.D. - Computational Biologist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0e27;
+            --bg-card: #1a1f3a;
+            --accent-blue: #00d4ff;
+            --accent-green: #00ff88;
+            --accent-purple: #b24bf3;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a6c9;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .dna-strand {
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent-blue), var(--accent-green));
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .dna-strand:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .dna-strand:nth-child(2) { left: 30%; animation-delay: 2s; }
+        .dna-strand:nth-child(3) { left: 50%; animation-delay: 4s; }
+        .dna-strand:nth-child(4) { left: 70%; animation-delay: 6s; }
+        .dna-strand:nth-child(5) { left: 90%; animation-delay: 8s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scaleY(1); }
+            50% { transform: translateY(-30px) scaleY(1.1); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--accent-blue);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-blue);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 5% 5rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-family: 'Courier New', monospace;
+        }
+
+        .hero .tagline {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--text-primary);
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .about-text {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--accent-blue);
+            border-radius: 20px;
+            color: var(--accent-blue);
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent-blue);
+            color: var(--bg-dark);
+            transform: translateY(-3px);
+        }
+
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .blog-card {
+            background: var(--bg-card);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .blog-card:hover::before {
+            left: 100%;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .blog-category {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .blog-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .blog-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .blog-date {
+            color: var(--accent-green);
+            font-size: 0.9rem;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 15px;
+            padding: 2.5rem;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--accent-green);
+            box-shadow: 0 15px 50px rgba(0, 255, 136, 0.2);
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--accent-blue);
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            padding: 0.3rem 0.8rem;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: var(--accent-blue);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-form {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: var(--bg-dark);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+            border: none;
+            border-radius: 8px;
+            color: var(--bg-dark);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            border-color: var(--accent-blue);
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.2);
+        }
+
+        .social-icon {
+            font-size: 1.8rem;
+            color: var(--accent-blue);
+        }
+
+        .coffee-section {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 15px;
+            border: 1px solid rgba(180, 75, 243, 0.2);
+            text-align: center;
+        }
+
+        .coffee-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .coffee-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(180, 75, 243, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-grid,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            .hero-stats {
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation">
+        <div class="dna-strand"></div>
+        <div class="dna-strand"></div>
+        <div class="dna-strand"></div>
+        <div class="dna-strand"></div>
+        <div class="dna-strand"></div>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Mingsheng Qi, Ph.D.</h1>
+            <p class="subtitle">< Computational Biologist | Data Scientist /></p>
+            <p class="tagline">Transforming genomic complexity into actionable insights. Building pipelines that bridge molecular biology and data-driven innovation.</p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">14+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">40+</span>
+                    <span class="stat-label">Projects Delivered</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Publications</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>I'm a computational biologist with 14+ years of experience turning high-dimensional genomic data into breakthrough discoveries and production-ready solutions. My expertise spans the full lifecycle of genomics R&D—from experimental design and NGS pipeline development to multi-omics integration and stakeholder communication.</p>
+                
+                <p>Currently leading bioinformatics operations at Solis Agrosciences, I orchestrate end-to-end sequencing workflows supporting genome editing, breeding, and microbial discovery programs. Previously, I contributed to agricultural biotech innovation at Benson Hill and conducted fundamental research at the Donald Danforth Plant Science Center.</p>
+                
+                <p>What drives me? The challenge of extracting biological signal from noisy data, building systems that scale, and translating complex analyses into decisions that matter. Whether it's identifying drought-resilient microbes or validating CRISPR edits, I thrive at the intersection of biology, data science, and product thinking.</p>
+            </div>
+            
+            <div>
+                <h3 style="margin-bottom: 1.5rem; color: var(--accent-green);">Core Expertise</h3>
+                <div class="skills">
+                    <span class="skill-tag">Pipeline Development</span>
+                    <span class="skill-tag">GWAS & QTL Mapping</span>
+                    <span class="skill-tag">NGS Analysis</span>
+                    <span class="skill-tag">Multi-Omics</span>
+                    <span class="skill-tag">Microbiome</span>
+                    <span class="skill-tag">AWS & Cloud</span>
+                    <span class="skill-tag">R & Python</span>
+                    <span class="skill-tag">Nextflow & Docker</span>
+                    <span class="skill-tag">Data Visualization</span>
+                    <span class="skill-tag">LIMS Integration</span>
+                    <span class="skill-tag">Stakeholder Management</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog">
+        <h2>Blog</h2>
+        <div class="blog-grid">
+            <div class="blog-card">
+                <span class="blog-category">Business Thinking</span>
+                <h3>The ROI of Reproducible Pipelines</h3>
+                <p>Why investing in automated, version-controlled workflows isn't just good science—it's good business. How reproducibility drives efficiency and stakeholder trust.</p>
+                <span class="blog-date">Coming Soon</span>
+            </div>
+            
+            <div class="blog-card">
+                <span class="blog-category">Career Insights</span>
+                <h3>From Bench to Cloud: Navigating the Bioinformatics Career Path</h3>
+                <p>Lessons learned transitioning from wet-lab molecular biology to computational leadership. Skills that matter, pitfalls to avoid, and how to stay relevant.</p>
+                <span class="blog-date">Coming Soon</span>
+            </div>
+            
+            <div class="blog-card">
+                <span class="blog-category">Technical Deep-Dive</span>
+                <h3>Skim-Seq + Imputation: Cost-Effective Genotyping at Scale</h3>
+                <p>A technical breakdown of how low-coverage sequencing paired with reference panels delivers 95% accuracy at 10% of traditional WGS costs.</p>
+                <span class="blog-date">Coming Soon</span>
+            </div>
+            
+            <div class="blog-card">
+                <span class="blog-category">Business Thinking</span>
+                <h3>Building Scientific Services That Scale</h3>
+                <p>What makes a genomics service platform successful? Balancing custom solutions with standardized offerings, and why SLAs matter more than you think.</p>
+                <span class="blog-date">Coming Soon</span>
+            </div>
+            
+            <div class="blog-card">
+                <span class="blog-category">Career Insights</span>
+                <h3>The Art of Cross-Functional Communication</h3>
+                <p>How to translate between wet-lab biologists, software engineers, and business stakeholders—without losing your mind or the message.</p>
+                <span class="blog-date">Coming Soon</span>
+            </div>
+            
+            <div class="blog-card">
+                <span class="blog-category">Technical Deep-Dive</span>
+                <h3>Designing KPIs for Genomics Operations</h3>
+                <p>Beyond "samples processed": metrics that actually predict bottlenecks, optimize resource utilization, and keep pipelines running smoothly.</p>
+                <span class="blog-date">Coming Soon</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="portfolio-grid">
+            <div class="project-card">
+                <div class="project-icon">🧬</div>
+                <h3>Multi-Omics Microbiome Discovery</h3>
+                <p>Led integrative analysis of sorghum-microbiome interactions under drought stress, combining 16S sequencing, phenotyping, and statistical modeling. Identified beneficial bacterial taxa that enhance crop resilience—published in The ISME Journal (IF 10.3).</p>
+                <div class="project-tags">
+                    <span class="tag">16S Amplicon</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">R/ggplot2</span>
+                    <span class="tag">High-Impact Publication</span>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-icon">⚡</div>
+                <h3>Production NGS Pipeline (AWS)</h3>
+                <p>Designed and deployed automated bioinformatics workflows supporting 40+ concurrent projects. Nextflow-orchestrated pipelines for variant calling, GWAS, and microbiome analysis—achieving 99% uptime and 3-day average turnaround.</p>
+                <div class="project-tags">
+                    <span class="tag">Nextflow</span>
+                    <span class="tag">Docker</span>
+                    <span class="tag">AWS EC2/S3</span>
+                    <span class="tag">Scalability</span>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-icon">📊</div>
+                <h3>Real-Time Dashboard for Sequencing Operations</h3>
+                <p>Built interactive Streamlit dashboard visualizing pipeline KPIs, QC metrics, sequencer performance, and resource utilization. Enabled proactive bottleneck resolution and transparent stakeholder communication.</p>
+                <div class="project-tags">
+                    <span class="tag">Python Streamlit</span>
+                    <span class="tag">Plotly</span>
+                    <span class="tag">Data Visualization</span>
+                    <span class="tag">Operations</span>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-icon">🌽</div>
+                <h3>QTL Mapping for Sweetcorn Breeding</h3>
+                <p>Performed genome-wide association studies and QTL mapping using skim-seq + imputation in sweetcorn populations. Delivered trait-linked markers enabling accelerated breeding for yield and flavor traits.</p>
+                <div class="project-tags">
+                    <span class="tag">GWAS</span>
+                    <span class="tag">Genotype Imputation</span>
+                    <span class="tag">Breeding Support</span>
+                    <span class="tag">Population Genetics</span>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-icon">🔬</div>
+                <h3>Genotyping Platform Industrialization</h3>
+                <p>Led development and scale-up of probe-based target enrichment and amplicon sequencing platforms for genome editing validation. Established SOPs, QC gates, and automated reporting for 10K+ samples/year.</p>
+                <div class="project-tags">
+                    <span class="tag">NGS Platform</span>
+                    <span class="tag">LIMS Integration</span>
+                    <span class="tag">SOP Development</span>
+                    <span class="tag">Quality Systems</span>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-icon">📚</div>
+                <h3>Published Research Portfolio</h3>
+                <p>10+ peer-reviewed publications in high-impact journals (PLoS Pathogens IF 9.1, The ISME Journal IF 10.3, Plant Biotechnology Journal IF 7.4) spanning host-pathogen interactions, functional genomics, and microbiome ecology.</p>
+                <div class="project-tags">
+                    <span class="tag">First/Last Author</span>
+                    <span class="tag">High IF Journals</span>
+                    <span class="tag">Computational Methods</span>
+                    <span class="tag">Google Scholar</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+            
+            <div class="contact-info">
+                <div class="social-links">
+                    <a href="mailto:tonyqms@gmail.com" class="social-link">
+                        <span class="social-icon">📧</span>
+                        <div>
+                            <strong>Email</strong><br>
+                            tonyqms@gmail.com
+                        </div>
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/in/mingshengqi/" target="_blank" class="social-link">
+                        <span class="social-icon">💼</span>
+                        <div>
+                            <strong>LinkedIn</strong><br>
+                            Connect with me professionally
+                        </div>
+                    </a>
+                    
+                    <a href="https://scholar.google.com/citations?user=qEQPHFwAAAAJ" target="_blank" class="social-link">
+                        <span class="social-icon">📖</span>
+                        <div>
+                            <strong>Google Scholar</strong><br>
+                            View my publications
+                        </div>
+                    </a>
+                    
+                    <a href="tel:+12178196637" class="social-link">
+                        <span class="social-icon">📱</span>
+                        <div>
+                            <strong>Phone</strong><br>
+                            217-819-6637
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="coffee-section">
+                    <h3 style="margin-bottom: 1rem;">☕ Support My Content</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">If you find my blog posts and insights valuable, consider buying me a coffee!</p>
+                    <a href="#" class="coffee-btn">Buy Me a Coffee</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Mingsheng Qi, Ph.D. | Building the future of genomics, one pipeline at a time.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I\'ll get back to you soon.');
+            this.reset();
+        });
+
+        // Intersection
