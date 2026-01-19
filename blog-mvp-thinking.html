@@ -577,14 +577,14 @@
 
             <div class="highlight-box">
                 <h3>Real example:</h3>
-                <p>First version of our amplicon library prep automation: 4 hours per plate, manual tip confirmations at every step, zero error handling.</p>
+                <p>First version of our amplicon library prep automation: 1.5 hours per plate, manual tip confirmations at every step, zero error handling.</p>
                 <p>But it WORKED. We processed 100 samples and learned:</p>
                 <ul>
                     <li>Tips failed consistently in column 7 (solution: different tip box brand)</li>
                     <li>Magnetic bead steps needed 30 seconds longer than protocol specified (solution: updated wait times)</li>
                     <li>Barcode scanning failed on certain plate positions (solution: added verification step)</li>
                 </ul>
-                <p>Six months later: 90 minutes per plate, fully automated, handles partial plates and reruns.</p>
+                <p>Six months later: 50 minutes per plate, fully automated, handles partial plates and reruns.</p>
                 <p><strong>But we shipped library prep data in month 1, not month 6. That's what mattered.</strong></p>
             </div>
 
@@ -665,7 +665,7 @@
             <h4>Month 2-3: Iterate on Real Needs</h4>
             <p><strong>Added:</strong></p>
             <ul>
-                <li>DNA QC gate (reject poor samples before library prep)</li>
+                <li>DNA QC gate (tag poor samples before library prep)</li>
                 <li>Skim-sequencing + imputation workflow (cost reduction)</li>
                 <li>Basic LIMS tracking for sample barcodes</li>
                 <li>Automated genotype imputation using breeding panel</li>
@@ -682,7 +682,7 @@
 
             <h4>Month 4-6: Scale for Production</h4>
             <ul>
-                <li>Increased throughput to 384 samples per run</li>
+                <li>Increased throughput to 1536 samples per run</li>
                 <li>Built QC monitoring (track imputation accuracy, missing data rates)</li>
                 <li>Developed breeding-specific output formats</li>
                 <li>Created SOPs based on what operators actually needed help with</li>
@@ -690,7 +690,7 @@
 
             <div class="highlight-box">
                 <h3>The outcome:</h3>
-                <p>After 6 months: 2,000+ samples per quarter, 97% first-pass success rate, trusted by breeding teams for selection decisions.</p>
+                <p>After 6 months: 2,000+ samples per quarter, 94% first-pass success rate, trusted by breeding teams for selection decisions.</p>
                 <p><strong>But we delivered usable genotypes in Month 1, not Month 6.</strong> Breeding teams made selections based on our data from day one. And every feature we built solved a problem we'd experienced, not one we'd imagined.</p>
             </div>
 
@@ -715,7 +715,7 @@
 
             <h2>Practical Guidelines for MVP Implementation</h2>
 
-            <p>Based on building dozens of pipelines, protocols, and automation systems, here's my tactical playbook:</p>
+            <p>Based on building dozens of pipelines, protocols, and automation systems, here's my tactical playbook (timeline is conceptual):</p>
 
             <h3>For Analysis Pipelines:</h3>
 
@@ -900,7 +900,7 @@
 
             <blockquote>
                 <strong>About the Author:</strong><br>
-                Mingsheng Qi, Ph.D., leads bioinformatics operations at Solis Agrosciences, where he's built production pipelines processing 40+ concurrent projects with 99% uptime. Previously at Benson Hill, he industrialized genotyping platforms for breeding programs. He's learned most of these lessons the hard way—by building the wrong thing beautifully, then learning to build the right thing iteratively.
+                Mingsheng Qi, Ph.D., led bioinformatics operations at Solis Agrosciences, where he's built production pipelines processing 40+ projects with 94% uptime. Previously at Benson Hill, he industrialized genotyping platforms for breeding programs. He's learned most of these lessons the hard way—by building the wrong thing beautifully, then learning to build the right thing iteratively.
             </blockquote>
 
             <p><em>What's your MVP story? Share in the comments—have you over-engineered something that missed the mark, or shipped something scrappy that succeeded?</em></p>
