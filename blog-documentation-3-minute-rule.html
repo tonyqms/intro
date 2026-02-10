@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 3-Minute Rule for Documentation - Mingsheng Qi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0e27;
+            --bg-card: #1a1f3a;
+            --accent-blue: #00d4ff;
+            --accent-green: #00ff88;
+            --accent-purple: #b24bf3;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a6c9;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-blue);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--accent-blue);
+            border-radius: 8px;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-bottom: 2rem;
+        }
+
+        .back-btn:hover {
+            background: var(--accent-blue);
+            color: var(--bg-dark);
+            transform: translateX(-5px);
+        }
+
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 5% 5rem;
+        }
+
+        .article-header {
+            margin-bottom: 3rem;
+        }
+
+        .article-category {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .article-meta {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .article-excerpt {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            padding-left: 1.5rem;
+            border-left: 4px solid var(--accent-blue);
+            margin-bottom: 3rem;
+        }
+
+        .article-content {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .article-content h2 {
+            color: var(--text-primary);
+            font-size: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .article-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+        }
+
+        .article-content h3 {
+            color: var(--accent-blue);
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.8rem;
+        }
+
+        .article-content blockquote {
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border-left: 4px solid var(--accent-green);
+            border-radius: 8px;
+            margin: 2rem 0;
+            font-style: italic;
+        }
+
+        .highlight-box {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--accent-blue);
+            margin: 2rem 0;
+        }
+
+        .share-section {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .share-title {
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .share-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .share-link {
+            padding: 0.6rem 1.2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--accent-blue);
+            border-radius: 6px;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .share-link:hover {
+            background: var(--accent-blue);
+            color: var(--bg-dark);
+        }
+
+        /* Related Posts */
+        .related-posts {
+            margin-top: 4rem;
+            padding: 3rem;
+            background: var(--bg-card);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .related-posts h3 {
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .related-card {
+            padding: 1.5rem;
+            background: var(--bg-dark);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+        }
+
+        .related-card:hover {
+            border-color: var(--accent-green);
+            transform: translateY(-5px);
+        }
+
+        .related-card h4 {
+            color: var(--accent-green);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .related-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+            color: var(--text-secondary);
+            margin-top: 5rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="./index.html#home">Home</a></li>
+            <li><a href="./index.html#about">About</a></li>
+            <li><a href="./index.html#blog">Blog</a></li>
+            <li><a href="./index.html#portfolio">Portfolio</a></li>
+            <li><a href="./index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <article>
+        <a href="./index.html#blog" class="back-btn">← Back to Blog</a>
+
+        <header class="article-header">
+            <span class="article-category">Technical Deep-Dive</span>
+            <h1>The 3-Minute Rule for Documentation That Actually Gets Used</h1>
+            
+            <div class="article-meta">
+                <span class="meta-item">📅 February 10, 2026</span>
+                <span class="meta-item">⏱️ 12 min read</span>
+                <span class="meta-item">✍️ Mingsheng Qi, Ph.D.</span>
+            </div>
+
+            <p class="article-excerpt">
+                A practical system for building documentation that teams actually read: execution docs for speed, a knowledge base for context, and AI as a force multiplier—without sacrificing accuracy.
+            </p>
+        </header>
+
+        <div class="article-content">
+            <p>
+                I spent two days writing a 15-page pipeline manual. Two people read it. Nobody used it.
+            </p>
+
+            <p>
+                That was my wake-up call on documentation. I had been writing for completeness, not for the people trying to ship work under pressure. Over 40+ projects and dozens of onboarding cycles, I rebuilt my documentation system from the ground up. Today I design documentation around two branches: execution docs for speed, and a knowledge base for context.
+            </p>
+
+            <h2>The 3-Minute Rule</h2>
+
+            <p>
+                If someone can’t find what they need in three minutes, the documentation has failed. Most people arrive at docs in a mild state of panic: a run is stuck, a deliverable is due, or a cluster is burning money. They don’t want a textbook. They want one command, one config snippet, or one explanation that unblocks them.
+            </p>
+
+            <div class="highlight-box">
+                <h4>Design for three moments:</h4>
+                <ul>
+                    <li>“I just want to run this pipeline.”</li>
+                    <li>“I need to do a common task I half-remember.”</li>
+                    <li>“It broke. Please fix it.”</li>
+                </ul>
+            </div>
+
+            <h2>Branch 1: Execution Docs (The “How”)</h2>
+
+            <p>
+                Execution docs live next to the code and optimize for time-to-first-success, not technical completeness. They reduce support tickets by eliminating ambiguity at the most common failure points.
+            </p>
+
+            <h3>1) Quick Start: 30 Seconds to First Run</h3>
+
+            <p>
+                The Quick Start is intentionally minimal: one sentence on what the pipeline does, one command to run it, and one pointer to outputs. The psychological win of “I got it to run” is enormous.
+            </p>
+
+            <div class="highlight-box">
+                <p><strong>Example:</strong></p>
+                <p><code>nextflow run pipeline.nf --input samples.csv</code></p>
+                <p>Outputs: <code>./results/</code></p>
+            </div>
+
+            <h3>2) Common Tasks Cheat Sheet</h3>
+
+            <p>
+                Most users repeat a small set of operations. Capture the 20% that generates 80% of support traffic.
+            </p>
+
+            <ul>
+                <li>Override default parameters</li>
+                <li>Resume a failed run</li>
+                <li>Check status on the cluster or cloud</li>
+                <li>Find logs and outputs quickly</li>
+                <li>Know who to contact when it still fails</li>
+            </ul>
+
+            <h3>3) “It Broke” Troubleshooting</h3>
+
+            <p>
+                Troubleshooting should be ordered by frequency and cost, not alphabetically. Each entry should include a symptom, a copy-paste fix, and a second step if needed.
+            </p>
+
+            <ol>
+                <li>Out-of-memory / OOMKilled</li>
+                <li>Input file not found or wrong pattern</li>
+                <li>Permission denied / auth issues</li>
+                <li>Disk space / quota problems</li>
+                <li>Misconfigured parameters</li>
+            </ol>
+
+            <h3>Execution Doc Layout</h3>
+
+            <p>
+                In practice, I keep execution docs short and close to the code:
+            </p>
+
+            <ul>
+                <li><strong>README.md:</strong> what it does, quick start, outputs, links</li>
+                <li><strong>CHEATSHEET.md:</strong> common tasks with real commands</li>
+                <li><strong>TROUBLESHOOTING.md:</strong> top failures with fixes</li>
+            </ul>
+
+            <h2>Branch 2: Knowledge Base (The “Why”)</h2>
+
+            <p>
+                The knowledge base lives outside the repo (Confluence, Notion, internal wiki). It’s stable, narrative, and strategic—so new team members don’t “simplify” steps that exist for real constraints.
+            </p>
+
+            <h3>What Actually Gets Read</h3>
+
+            <ul>
+                <li>Design decisions and tradeoffs</li>
+                <li>Change history with rationale</li>
+                <li>Data contracts and assumptions</li>
+                <li>Cross-team context and ownership</li>
+                <li>Expected SLAs and QC gates</li>
+            </ul>
+
+            <h3>Minimal Templates, Not Essays</h3>
+
+            <p>
+                I use a short template to keep pages tight:
+            </p>
+
+            <ul>
+                <li><strong>Problem:</strong> What pain did we need to solve?</li>
+                <li><strong>Options:</strong> 2–4 realistic alternatives</li>
+                <li><strong>Decision:</strong> What we chose and why</li>
+                <li><strong>Impact:</strong> On users, operations, and cost</li>
+                <li><strong>Links:</strong> PRs, issues, SOPs, pipelines</li>
+            </ul>
+
+            <h3>Change Management</h3>
+
+            <p>
+                Release notes should be narratives, not version numbers. “We dropped format X because Y.” “We added QC step Z to catch failure mode W.” This reduces confusion and helps audits.
+            </p>
+
+            <h3>SOPs for Regulated Work</h3>
+
+            <p>
+                In regulated environments, I keep SOPs thin: roles, responsibilities, checkpoints, and evidence. Use checklists and flow diagrams instead of prose, and keep SOPs under version control.
+            </p>
+
+            <h2>Quietly Using AI to Make This Sustainable</h2>
+
+            <p>
+                Writing documentation is a tax on already overloaded teams. AI tools can accelerate the mechanics without compromising truth—as long as you keep ground truth anchored in code and configs.
+            </p>
+
+            <ul>
+                <li><strong>Drafting from bullets:</strong> Generate first drafts, then tighten and verify</li>
+                <li><strong>Summarizing discussions:</strong> Turn messy notes into decision logs</li>
+                <li><strong>Refactoring legacy docs:</strong> Convert wall-of-text manuals into quick-starts</li>
+                <li><strong>Consistency checks:</strong> Surface outdated flags or naming drift for review</li>
+            </ul>
+
+            <blockquote>
+                AI accelerates the mechanics—rephrasing, reordering, summarizing—but it doesn’t get to invent technical truth.
+            </blockquote>
+
+            <h2>My Personal Success Criteria</h2>
+
+            <div class="highlight-box">
+                <ul>
+                    <li>A new teammate can run the main use case within 10 minutes of opening the repo.</li>
+                    <li>A technical stakeholder can understand the major decisions in under 30 minutes.</li>
+                    <li>At 2 a.m., the on-call person can find a fix in three minutes without messaging me.</li>
+                </ul>
+            </div>
+
+            <p>
+                If those conditions aren’t met, I don’t have good documentation. I have a knowledge graveyard.
+            </p>
+
+            <h2>Final Questions to Ask Yourself</h2>
+
+            <ul>
+                <li>Do your docs optimize for speed, or for ego?</li>
+                <li>Do you have both branches—the “how” next to the code and the “why” in a knowledge base?</li>
+                <li>Are you quietly letting AI help with the heavy lifting, or still treating every paragraph like a blank-page exercise?</li>
+            </ul>
+        </div>
+
+        <div class="share-section">
+            <div class="share-title">Share this article</div>
+            <div class="share-links">
+                <a href="#" class="share-link">LinkedIn</a>
+                <a href="#" class="share-link">Twitter</a>
+                <a href="#" class="share-link">Email</a>
+            </div>
+        </div>
+
+        <div class="related-posts">
+            <h3>Related Posts</h3>
+            <div class="related-grid">
+                <a href="blog-kpis.html" class="related-card">
+                    <h4>Designing KPIs for Genomics Operations</h4>
+                    <p>Metrics that actually predict bottlenecks and optimize pipelines.</p>
+                </a>
+                <a href="blog-reproducible-pipelines.html" class="related-card">
+                    <h4>The ROI of Reproducible Pipelines</h4>
+                    <p>How reproducibility drives efficiency, trust, and business impact.</p>
+                </a>
+                <a href="blog-resilient-operations.html" class="related-card">
+                    <h4>From Firefighting to Prevention</h4>
+                    <p>Designing operations that absorb shocks without cascading failures.</p>
+                </a>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <p>&copy; 2026 Mingsheng Qi, Ph.D. | <a href="index.html" style="color: var(--accent-blue); text-decoration: none;">Return to Home</a></p>
+    </footer>
+</body>
+</html>
