@@ -1,0 +1,516 @@
+# Interview Stories & Behavioral Questions
+
+## Table of Contents
+
+### Focus on Outcome
+1. [GBS Internalization Focus](#1-gbs-internalization-focus)
+2. [Rethinking Instrument Selection to Future-Proof an Internal GBS Platform](#2-rethinking-instrument-selection-to-future-proof-an-internal-gbs-platform)
+3. [Defining a Future-Proof NGS Instrument Strategy](#3-defining-a-future-proof-ngs-instrument-strategy)
+4. [Re-imagining Bioinformatics as Decision Infrastructure at Solis Genomics](#4-re-imagining-bioinformatics-as-decision-infrastructure-at-solis-genomics)
+
+### Co-create for Customers
+5. [Collecting Cross-Functional Perspectives to Improve NGS Data Reporting at Solis Genomics](#5-collecting-cross-functional-perspectives-to-improve-ngs-data-reporting-at-solis-genomics)
+6. [Designing a Modular NGS Analysis Workflow Around Customer Needs](#6-designing-a-modular-ngs-analysis-workflow-around-customer-needs)
+7. [Eliminating Non-Value-Added QC Metrics to Improve NGS Delivery](#7-eliminating-non-value-added-qc-metrics-to-improve-ngs-delivery)
+8. [Fixing GBS Data Flow to Enable Seamless Downstream Use](#8-fixing-gbs-data-flow-to-enable-seamless-downstream-use)
+9. [Innovating Data Visualization to Improve Internal Customer Experience](#9-innovating-data-visualization-to-improve-internal-customer-experience)
+
+### Collaborate with Accountability
+10. [Delivering a Shared NGS Dashboard Amid Conflicting Stakeholder Needs](#10-delivering-a-shared-ngs-dashboard-amid-conflicting-stakeholder-needs)
+11. [Breaking Down Silos to Build an End-to-End GBS Data Pipeline](#11-breaking-down-silos-to-build-an-end-to-end-gbs-data-pipeline)
+12. [Empowering Frontline Voices Through Data Visibility](#12-empowering-frontline-voices-through-data-visibility)
+13. [Removing Error-Prone Manual Calculations in GBS Production](#13-removing-error-prone-manual-calculations-in-gbs-production)
+14. [Taking a Risk by Self-Initiating a Dashboard to Improve Access to Sequencing Reports](#14-taking-a-risk-by-self-initiating-a-dashboard-to-improve-access-to-sequencing-reports)
+
+### Act, Learn Fast and Evolve
+15. [Creating an Innovative and Self-Motivated Sequencing Team](#15-creating-an-innovative-and-self-motivated-sequencing-team)
+16. [Enabling Sales to Use a Modular, Scalable Approach to NGS Projects](#16-enabling-sales-to-use-a-modular-scalable-approach-to-ngs-projects)
+17. [Giving and Receiving Constructive Feedback with a Client Post-Project](#17-giving-and-receiving-constructive-feedback-with-a-client-post-project)
+18. [Scaling a Prototype into a Cloud-Native, LIMS-Integrated GBS Pipeline](#18-scaling-a-prototype-into-a-cloud-native-lims-integrated-gbs-pipeline)
+
+---
+
+## Focus on Outcome
+
+### 1. GBS Internalization Focus
+**Prompt:** An example of a time when you collaborated with your team/peer or other functions to create a vision that had a holistic impact on the organization or project
+
+**Situation**
+When I joined Benson Hill, Genotyping-by-Sequencing (GBS) was fully outsourced. While it worked operationally, it limited turnaround time, cost control, and flexibility for breeding programs that needed fast, iterative decision-making.
+
+**Task**
+Together with my supervisor, I helped lead the internalization of the entire GBS pipeline—from wet lab and instrumentation to bioinformatics and data delivery—while ensuring it met breeding needs at scale.
+
+**Action**
+- We partnered closely with breeding teams to define what "successful GBS data" meant for selection decisions, not just technical output.
+- I helped evaluate and onboard instruments and reagents, and led protocol optimization to balance throughput, data quality, and cost.
+- I developed and standardized bioinformatics pipelines and QC metrics, ensuring data consistency and reliability.
+- I contributed to training lab and data staff, creating SOPs so the workflow was repeatable and scalable.
+- Throughout the process, I worked cross-functionally to communicate tradeoffs and align expectations across science, operations, and leadership.
+
+**Result**
+- GBS was successfully brought fully in-house and scaled to support high-volume breeding programs.
+- Turnaround time dropped from 18 days to 10 days, with 93%+ usable data quality.
+- Breeders gained faster feedback loops and greater confidence in genotyping results.
+- The internal GBS platform became a foundational capability for downstream breeding and product development.
+
+**Closing Insight**
+This wasn't just a technical transition—it shifted GBS from a vendor-dependent service into a strategic internal platform that gave the organization speed, control, and long-term scalability.
+
+---
+
+### 2. Rethinking Instrument Selection to Future-Proof an Internal GBS Platform
+**Prompt:** A time you paused and reconsidered your steps in the larger context in order to achieve a better outcome
+
+**Situation**
+During the internalization of the GBS workflow at Benson Hill, our initial plan was to replicate the outsourced vendor's setup exactly, including using the same sequencing instruments, to minimize risk and ensure continuity.
+
+**Task**
+As part of due diligence, I spoke directly with Illumina representatives and realized that the vendor's instruments were older models nearing the later stage of their lifecycle. I paused and reconsidered the broader context: we weren't just recreating a workflow—we were building a long-term, internal platform that needed to be sustainable and adaptable.
+
+**Action**
+- I evaluated newer Illumina models in terms of throughput, chemistry roadmap, service support, and long-term reagent availability.
+- I discussed tradeoffs with my supervisor and lab operations, including upfront cost versus long-term scalability.
+- I aligned the decision with breeding timelines to ensure the transition wouldn't disrupt data delivery.
+- We updated training plans, SOPs, and validation runs to support the newer instruments.
+
+**Result**
+- We selected a newer-generation Illumina platform that better matched future GBS demand.
+- The internal GBS pipeline became more scalable and resilient to technology changes.
+- We avoided near-term reinvestment and reduced long-term operational risk.
+- The platform supported continued growth of breeding programs without needing major rework.
+
+**Closing Insight**
+By pausing to look beyond short-term replication and focusing on sustainability, we turned an implementation decision into a strategic investment for the organization.
+
+---
+
+### 3. Defining a Future-Proof NGS Instrument Strategy
+**Prompt:** A situation where you collaborated with your team to define aspirational outcomes/results. How did you ensure these outcomes were relevant and impactful
+
+**Situation**
+During the internalization of the GBS workflow at Benson Hill, my team initially planned to replicate the outsourced vendor's sequencing setup to minimize risk and accelerate the transition.
+
+**Task**
+As a team, we stepped back and defined a broader goal: not just to bring GBS in-house, but to build a sustainable, future-proof sequencing platform that could support growing breeding demands without repeated reinvestment.
+
+**Action**
+- I collaborated with my supervisor, lab operations, and vendors to evaluate instrument options beyond simple equivalency.
+- Through discussions with Illumina representatives, I learned the vendor's instruments were older models approaching the later stage of their lifecycle.
+- We assessed newer platforms against long-term criteria—throughput headroom, chemistry roadmap, service support, reagent availability, and compatibility with breeding timelines.
+- I ensured the outcome stayed relevant by tying technical choices directly to business impact, including scalability, cost of ownership, and operational resilience.
+- We aligned training, SOPs, and validation plans so the transition wouldn't disrupt ongoing programs.
+
+**Result**
+- We selected a newer-generation Illumina platform aligned with future growth.
+- The internal GBS pipeline became more scalable and sustainable.
+- We avoided near-term reinstrumentation and reduced long-term operational risk.
+- The platform supported expanding breeding programs without major redesign.
+
+**Closing Insight**
+By defining success in terms of long-term impact rather than short-term replication, we turned an implementation decision into a strategic investment for the organization.
+
+---
+
+### 4. Re-imagining Bioinformatics as Decision Infrastructure at Solis Genomics
+**Prompt:** A situation where you have re-imagined and explored future possibilities within a process/your role
+
+**Situation**
+When I joined Solis Genomics, bioinformatics was primarily viewed as an analysis function—pipelines focused on generating technically correct results as quickly as possible for a wide range of customer projects.
+
+**Task**
+I stepped back and re-imagined the role of bioinformatics as decision infrastructure, not just data processing. The future state I explored was one where customers and internal teams could trust results on first delivery, clearly understand limitations, and make decisions without repeated back-and-forth.
+
+**Action**
+- I collaborated with lab operations, customer-facing teams, and sales to understand where customers struggled after data delivery.
+- I redesigned pipelines and QC frameworks to emphasize first-pass success, clarity, and consistency, rather than maximizing raw outputs.
+- I introduced standardized QC metrics, early checkpoints, and clearer reporting so issues were identified proactively.
+- I aligned technical choices with customer decision points and documented workflows so the system could scale across projects.
+
+**Result**
+- Achieved 94%+ first-pass QC success across 10,000+ samples.
+- Reduced rework and internal firefighting.
+- Improved customer confidence and smoother post-delivery conversations.
+- Bioinformatics shifted from a reactive support role to a predictable, scalable decision backbone for the organization.
+
+**Closing Insight**
+By re-imagining bioinformatics as a future-ready decision platform, we created a process that scaled with customer demand while improving both efficiency and trust.
+
+---
+
+## Co-create for Customers
+
+### 5. Collecting Cross-Functional Perspectives to Improve NGS Data Reporting at Solis Genomics
+**Prompt:** A situation where you actively reached out to others to collect different perspectives to achieve better results
+
+**Situation**
+At Solis Genomics, NGS results were technically accurate, but we often saw follow-up questions from customers and internal teams because different groups interpreted the data differently.
+
+**Task**
+I wanted to improve outcomes by ensuring that NGS results were immediately actionable, not just correct, so I proactively sought perspectives beyond my own bioinformatics team.
+
+**Action**
+- I reached out to customer-facing teams to understand where customers typically got confused or needed extra explanation.
+- I spoke with lab operations to learn which upstream factors most often affected downstream data quality.
+- I collaborated with internal scientists and sales to understand what decisions were actually being made with the data.
+- I synthesized these perspectives to redesign QC metrics and reporting—highlighting decision-relevant indicators, clear thresholds, and concise interpretation notes rather than raw technical detail alone.
+
+**Result**
+- Customers could understand data quality and limitations on first delivery.
+- Internal back-and-forth and re-analysis requests decreased significantly.
+- We achieved 95%+ first-pass QC success across 100,000+ samples.
+- Bioinformatics became a clearer bridge between sequencing output and customer decisions.
+
+**Closing Insight**
+Actively collecting and integrating different perspectives allowed us to deliver better results by aligning technical output with real-world decision-making.
+
+---
+
+### 6. Designing a Modular NGS Analysis Workflow Around Customer Needs
+**Prompt:** How do you ensure that the customer remains at the center of your team's work? An example of how you have prioritized customer needs in a project
+
+**Situation**
+At Solis Genomics, our clients had very different analysis needs. Some only wanted high-confidence QC and variant calls, while others needed deeper downstream analyses like GWAS or population structure. A single, fixed pipeline didn't serve all customers equally well.
+
+**Task**
+I wanted to ensure customers stayed at the center of our work by redesigning the analysis workflow so it could be customized to each client's scientific goals without sacrificing reliability or turnaround time.
+
+**Action**
+- I actively gathered input from customers, sales, and field teams to understand what level of analysis each client actually needed.
+- Based on this, I redesigned the pipeline as a set of modular components: QC and data validation, reference genome alignment, variant calling, and optional downstream analyses such as GWAS and population structure.
+- Each module could be included or excluded depending on customer requirements.
+- I standardized inputs, outputs, and QC thresholds so modules could be combined seamlessly and still scale.
+- I documented the options clearly so customer-facing teams could set expectations upfront.
+
+**Result**
+- Customers received exactly the depth of analysis they needed, without paying for or waiting on unnecessary steps.
+- Turnaround time improved for lighter-weight projects while maintaining rigor for deeper analyses.
+- Communication with customers became clearer, and rework decreased.
+- The workflow scaled efficiently across diverse projects while staying customer-centric.
+
+**Closing Insight**
+By designing flexibility into the pipeline, we shifted from a one-size-fits-all approach to a customer-driven model that balanced scientific rigor with practical needs.
+
+---
+
+### 7. Eliminating Non-Value-Added QC Metrics to Improve NGS Delivery
+**Prompt:** A time where you identified and stopped non-value-added activities within your team or project. How did this impact efficiency and effectiveness
+
+**Situation**
+At Solis Genomics, our NGS pipelines generated a large number of QC metrics due to the nature of sequencing data. While this was technically thorough, both clients and internal production teams were often overwhelmed by the volume of metrics, which led to confusion and unnecessary follow-up discussions.
+
+**Task**
+I wanted to improve efficiency and effectiveness by identifying which QC activities actually added value to decision-making, and which ones were creating noise without improving outcomes.
+
+**Action**
+- I reviewed QC metrics with customer-facing teams, lab operations, and internal scientists to understand which metrics influenced real decisions.
+- We identified a small set of decision-critical QC metrics—those that determined whether data was usable or required intervention.
+- I redesigned reports and internal workflows so only decision-making metrics were surfaced to clients and production teams, while all other QC metrics were still captured and archived for internal diagnostics and continuous improvement, but removed from routine reporting.
+- I documented the rationale and thresholds so everyone understood why certain metrics mattered.
+
+**Result**
+- QC reports became clearer and faster to interpret.
+- Decision-making accelerated, with fewer clarification requests.
+- Internal teams spent less time debating low-impact metrics.
+- Overall efficiency improved while preserving technical rigor and traceability.
+
+**Closing Insight**
+By separating decision value from diagnostic detail, we eliminated non-value-added work without sacrificing quality or future learning.
+
+---
+
+### 8. Fixing GBS Data Flow to Enable Seamless Downstream Use
+**Prompt:** A situation or process which was not working well and the steps you took to improve it
+
+**Situation**
+Before we internalized the GBS workflow at Benson Hill, results from the external vendor were delivered as vendor-specific Excel files, sent to individual email inboxes. The format wasn't ready for downstream analysis, and the data science team had to manually clean, reformat, and upload results into our AWS infrastructure before any real work could begin.
+
+**Task**
+My goal was to improve the process so GBS results could move efficiently from sequencing to downstream analysis, without manual intervention or format friction, while still maintaining strict quality control.
+
+**Action**
+- After internalizing the GBS pipeline, I aligned closely with breeders and data scientists to understand exactly how genotyping data was consumed downstream.
+- I redesigned the output data format, keeping only decision-critical QC metrics and structuring results so they were immediately compatible with downstream pipelines.
+- I worked with data and infrastructure teams to ensure that, once all QC checks passed, results were automatically pushed into our AWS data lake landing zone.
+- This eliminated manual format conversion, data cleaning, and ad-hoc file transfers.
+- The entire process—from raw sequencer output to QC-passed, ingestion-ready data—became fully automated.
+
+**Result**
+- Manual handoffs and reformatting steps were eliminated.
+- Turnaround time from sequencing to downstream analysis was significantly reduced.
+- Data quality and consistency improved.
+- GBS became a streamlined, production-ready pipeline, directly feeding breeding and analytics workflows.
+
+**Closing Insight**
+By fixing the data flow—not just the assay—we transformed GBS from a fragmented output into a seamless, end-to-end system that supported faster and more reliable decision-making.
+
+---
+
+### 9. Innovating Data Visualization to Improve Internal Customer Experience
+**Prompt:** A time where you drove innovation which led to a better customer experience
+
+**Situation**
+At Solis Genomics, NGS results were technically solid, but internal customers—bench scientists, sales, and leadership—often struggled to quickly interpret complex datasets from static tables or reports. This created delays, repeated explanations, and inconsistent messaging to external clients.
+
+**Task**
+I saw an opportunity to improve the internal customer experience by rethinking how we presented NGS data—not changing the data itself, but how people interacted with it.
+
+**Action**
+- I spoke with bench scientists to understand what QC and performance signals they needed to troubleshoot experiments.
+- I worked with sales and customer-facing teams to identify which summaries helped them communicate value and limitations clearly.
+- I aligned with leadership on high-level KPIs they cared about—throughput, success rates, and trends.
+- Based on these perspectives, I built interactive dashboards using tools like RShiny and Streamlit that allowed users to explore QC metrics, coverage, and performance at different levels of detail.
+- The dashboards provided both high-level summaries and drill-down views, tailored to different audiences.
+
+**Result**
+- Internal teams could quickly understand data without relying on deep bioinformatics support.
+- Sales and leadership gained clearer, more consistent narratives around performance and customer outcomes.
+- Decision-making accelerated, and cross-team communication improved.
+- Bioinformatics shifted from a bottleneck to an enablement layer for internal stakeholders.
+
+**Closing Insight**
+By innovating around data visualization and tailoring it to internal customers, we significantly improved clarity, speed, and confidence across the organization.
+
+---
+
+## Collaborate with Accountability
+
+### 10. Delivering a Shared NGS Dashboard Amid Conflicting Stakeholder Needs
+**Prompt:** A situation where you had to deal with conflicting perspectives of different stakeholders and still deliver on time
+
+**Situation**
+At Solis Genomics, different internal stakeholders needed very different views of the same NGS data. Bench scientists wanted detailed QC trends, sales needed simplified summaries they could explain to customers, and leadership wanted high-level performance indicators. These conflicting needs often caused delays and repeated custom requests, but the team still needed a solution delivered quickly.
+
+**Task**
+My goal was to reconcile these perspectives and deliver a single solution on time—without fragmenting the data or creating multiple, hard-to-maintain systems.
+
+**Action**
+- I designed the dashboard around a shared, single data source to maintain consistency and trust.
+- To address different needs, I built role-based views and subpages, each aligned with a specific analysis purpose.
+- I added interactive tools—time-window sliders, zoom in/out, cursor hovering for detailed values, and data download options—so users could explore the same data at different levels of depth without needing custom reports.
+- I validated designs with representatives from each group to ensure the solution met their core needs while keeping scope controlled so we stayed on schedule.
+
+**Result**
+- The dashboard was delivered on time.
+- Stakeholders with conflicting perspectives all used the same platform, but through different analytical lenses.
+- Ad-hoc requests and manual report generation dropped significantly.
+- Alignment and confidence improved because everyone was working from the same data, just interpreted differently.
+
+**Closing Insight**
+By combining a shared data foundation with flexible, user-driven exploration, I was able to resolve conflicting stakeholder needs and deliver a scalable solution without delaying delivery.
+
+---
+
+### 11. Breaking Down Silos to Build an End-to-End GBS Data Pipeline
+**Prompt:** An experience where you successfully broke down silos to connect people from different teams or departments. What was the outcome/result of this collaboration
+
+**Situation**
+Before we internalized the GBS workflow at Benson Hill, sequencing data moved in disconnected steps. Raw data came off the sequencer, but data scientists received vendor-formatted outputs via email, and significant manual work was required to clean, reformat, and upload data into AWS. Wet lab, bioinformatics, and cloud teams were effectively working in silos.
+
+**Task**
+My goal was to connect these teams and build a seamless, scalable data flow—from raw sequencer output to ingestion-ready data in AWS—without slowing down production timelines.
+
+**Action**
+- I started by creating a prototype pipeline that directly connected raw sequencer data with the structured outputs data scientists needed downstream. This helped make requirements concrete and aligned expectations across teams.
+- Using the prototype as a shared reference, I worked closely with AWS architects to design a cloud-native, scalable architecture, data engineers to standardize data formats and ingestion patterns, and software engineers to automate execution, monitoring, and error handling.
+- Together, we evolved the prototype into a fully automated, well-monitored, high-throughput pipeline running on AWS cloud infrastructure.
+- I acted as the translator between scientific requirements and engineering implementation, ensuring all teams stayed aligned.
+
+**Result**
+- Silos between wet lab, bioinformatics, and cloud engineering were effectively removed.
+- GBS data now flowed automatically from the sequencer through QC and formatting into the AWS data lake.
+- Manual uploads, reformatting, and ad-hoc troubleshooting were eliminated.
+- The pipeline scaled reliably to support high-throughput production and future growth.
+
+**Closing Insight**
+By starting with a working prototype and then scaling it collaboratively, I was able to connect teams with very different expertise and deliver a robust, production-ready system.
+
+---
+
+### 12. Empowering Frontline Voices Through Data Visibility
+**Prompt:** An instance where you encouraged diverse voices across the network regardless of seniority or hierarchy
+
+**Situation**
+At Solis Genomics, I oversaw a sequencing production team of two research associates responsible for DNA extraction, library prep, and loading samples onto sequencers. While they executed the day-to-day work well, once samples were loaded, they were largely disconnected from downstream data and QC results. That made it hard for them to see the impact of their work or identify opportunities for improvement.
+
+**Task**
+I wanted to increase engagement and ownership by giving frontline team members visibility into outcomes and creating space for their voices—regardless of seniority—to influence how the sequencing pipeline improved.
+
+**Action**
+- I consistently encouraged them to share concerns and improvement ideas about daily work and the sequencing pipeline.
+- Initially, I shared QC metrics and plots manually through Slack when they asked questions, but this was inefficient and reactive.
+- I decided to build an interactive dashboard so they could directly see how their daily work translated into large-scale sequencing data and quality metrics.
+- During development, I actively asked them what they wanted to see—what QC signals mattered to them, what helped them learn, and what would make issues easier to catch.
+- I used the dashboard not just as a reporting tool, but as an education and engagement platform, helping them connect hands-on work to data-driven outcomes.
+
+**Result**
+- The dashboard became a tool the team used every day.
+- Research associates gained a clearer understanding of sequencing quality and downstream impact.
+- Their feedback directly shaped a tool that improved visibility, learning, and continuous improvement.
+- Team engagement and ownership increased because their voices were reflected in the final product.
+
+**Closing Insight**
+By intentionally bringing frontline perspectives into the design process, I turned data visibility into a shared learning experience and strengthened both engagement and execution.
+
+---
+
+### 13. Removing Error-Prone Manual Calculations in GBS Production
+**Prompt:** How you identify and remove roadblocks for your team. Can you share a specific instance where your intervention helped accelerate progress
+
+**Situation**
+During GBS production at Benson Hill, sequencing operators had to perform library prep and sequencer-loading calculations manually using phone calculators. Each run required different inputs based on DNA concentration, and the process was both time-consuming and error-prone, creating a real bottleneck in production.
+
+**Task**
+My goal was to remove this roadblock quickly—before a full LIMS solution was in place—so operators could work faster, more consistently, and with fewer errors.
+
+**Action**
+- I analyzed the calculation steps operators were performing and standardized them into a single algorithm.
+- I built an Excel-based calculator tool where operators only needed to input DNA concentration.
+- The tool automatically generated all required values for library prep and sequencer loading.
+- To prevent accidental changes, I locked the calculation logic and allowed modification only in the input cells.
+- I trained operators on the tool and incorporated it into daily workflows.
+- Later, when the GBS LIMS was developed, I worked with the team to translate the same algorithm directly into LIMS automation, making the transition seamless.
+
+**Result**
+- Manual calculation errors were eliminated.
+- Production speed and consistency improved immediately.
+- Operator confidence increased.
+- When LIMS went live, there was no learning curve because the logic was already familiar and validated.
+
+**Closing Insight**
+By introducing a lightweight, practical solution at the right time, I removed a major operational roadblock and set the foundation for scalable automation.
+
+---
+
+### 14. Taking a Risk by Self-Initiating a Dashboard to Improve Access to Sequencing Reports
+**Prompt:** A time when you took a risk, and it paid off
+
+**Situation**
+At Solis Genomics, I kept hearing across teams that it was difficult and time-consuming to get reports for sequencing runs. People relied on ad-hoc requests, Slack messages, or static files, which slowed decision-making and created friction—but there wasn't an active project planned to address it.
+
+**Task**
+Instead of waiting for formal prioritization, I decided to self-initiate a solution. The risk was that I would invest time outside of normal project work and the tool might not be adopted.
+
+**Action**
+- Using my spare working time, I started building an interactive dashboard that pulled from existing sequencing data.
+- I focused on making reports easy to find and intuitive to explore, with summaries and drill-down capabilities.
+- Once I had a usable version, I shared it informally with a few teams and incorporated their feedback quickly.
+- I kept the scope tight, so it didn't interfere with my core responsibilities.
+
+**Result**
+- The dashboard was quickly adopted and became a frequently used tool.
+- Teams could access sequencing run reports on demand without asking for help.
+- Ad-hoc report requests dropped significantly.
+- What started as an unofficial effort evolved into a trusted, everyday resource.
+
+**Closing Insight**
+By taking a calculated risk and acting on a clear pain point, I was able to improve access to information and accelerate decision-making—without waiting for formal approval.
+
+---
+
+## Act, Learn Fast and Evolve
+
+### 15. Creating an Innovative and Self-Motivated Sequencing Team
+**Prompt:** A situation that highlights how you create an environment where innovation ideas and different opinions are welcomed
+
+**Situation**
+As the sequencing production team lead, I managed research associates responsible for DNA extraction, library prep, and sequencing execution. Traditionally, the focus was on SOP compliance and technical execution, which limited opportunities for innovation or deeper engagement.
+
+**Task**
+I wanted to create an environment where team members felt motivated to contribute ideas, understood the broader scientific context of their work, and felt comfortable voicing opinions—regardless of seniority.
+
+**Action**
+- Beyond skills training, I made a point to explain the scientific principles and theories behind our workflows.
+- I regularly shared the big picture of each project—why the SOP was written a certain way and how their work impacted downstream analysis and real-world decisions.
+- I actively invited team members to share concerns, questions, and improvement ideas during day-to-day work.
+- Based on their individual backgrounds and strengths, I encouraged them to take ownership of specific development or improvement projects, rather than just executing tasks.
+- I treated suggestions as opportunities to learn and improve, not as criticism of existing processes.
+
+**Result**
+- Team members became more engaged and proactive in identifying improvements.
+- Several workflow enhancements originated directly from frontline suggestions.
+- The team developed a stronger sense of ownership and purpose.
+- Over time, the group became more innovative, self-motivated, and confident in contributing beyond their defined roles.
+
+**Closing Insight**
+By combining scientific context, openness to ideas, and shared ownership, I created an environment where innovation emerged naturally from everyday work.
+
+---
+
+### 16. Enabling Sales to Use a Modular, Scalable Approach to NGS Projects
+**Prompt:** A situation where you assisted your team/peers in applying an innovative approach to their work. What are the challenges, and how did you overcome them
+
+**Situation**
+At Solis Genomics, the sales team frequently came to the technical team with open-ended questions like "Can we do this?", "How long will it take?", and "What will it cost?". Because they didn't have deep technical background, it was hard for them to distinguish between different request types, which slowed responses and created back-and-forth friction.
+
+**Task**
+I wanted to help sales apply a more innovative, structured approach so they could scope projects confidently, respond faster to customers, and rely less on ad-hoc technical consultations for basic cost and timeline estimates.
+
+**Action**
+- I designed a workflow map that translated complex technical processes into clear, customer-facing request categories.
+- I built an automated Excel-based estimation tool where sales could input key parameters and immediately see expected cost and timeline.
+- In parallel, I implemented a modular analysis pipeline aligned to the major request types, so technical execution matched what sales was quoting.
+- I walked the sales team through how to use these tools and explained the "why" behind each module so they could speak confidently with customers.
+
+**Result**
+- Sales could scope projects and discuss cost and timelines independently.
+- Back-and-forth requests to the technical team dropped significantly.
+- The request intake and delivery process became more streamlined and predictable.
+- Sales conversations became more confident, accurate, and technically grounded.
+
+**Closing Insight**
+By translating technical complexity into modular, usable tools, I helped sales adopt an innovative approach that accelerated both customer engagement and internal execution.
+
+---
+
+### 17. Giving and Receiving Constructive Feedback with a Client Post-Project
+**Prompt:** An example of a situation that describes/illustrates best your approach towards giving/receiving constructive feedback
+
+**Situation**
+In a client NGS project at Solis Genomics, we delivered sequencing and downstream analysis on time and with high technical quality. However, due to the client's experimental design—specifically a limited number of biological replicates—the results were statistically less conclusive than they had hoped.
+
+**Task**
+My goal was twofold: invite honest feedback from the client on our performance, and provide constructive, actionable feedback on how their study design could be improved—without sounding defensive or shifting blame.
+
+**Action**
+- After project completion, I proactively scheduled a post-project feedback meeting and explicitly asked the client for input on results quality, turnaround time, communication, and improvement areas.
+- In parallel, we included a recommendation section in the final report, framed around scientific rigor and business value rather than shortcomings.
+- We explained how the low number of replicates limited statistical power, using clear, non-technical language.
+- We then provided concrete suggestions: follow-up validation experiments and increasing replicates in future studies, tailored to their population structure and research goals.
+- Throughout the discussion, we emphasized that our intent was to help them get stronger, more decision-ready results, not just deliver data.
+
+**Result**
+- The client appreciated the transparency and felt we were genuinely invested in their success.
+- They shared positive feedback about our communication and scientific integrity.
+- They specifically requested more pre-sale scientific discussions for future projects so studies would be better designed upfront.
+- This strengthened trust and positioned us as a long-term partner, not just a service provider.
+
+**Closing Insight**
+By treating feedback as a two-way, value-driven conversation, I was able to improve both the immediate client experience and future project outcomes.
+
+---
+
+### 18. Scaling a Prototype into a Cloud-Native, LIMS-Integrated GBS Pipeline
+**Prompt:** How do you facilitate/build connections and expertise within your organization to co-create solutions? An example
+
+**Situation**
+After we internalized the GBS workflow at Benson Hill, Phase 1 delivered a semi-manual pipeline that was stable and working well in production. However, to truly scale, we needed to evolve this prototype into a fully automated, cloud-native pipeline integrated with LIMS—without disrupting ongoing production.
+
+**Task**
+My responsibility was to bring together the right expertise across teams to co-create a scalable solution, align execution, and deliver it within an aggressive timeline.
+
+**Action**
+- I organized a cross-functional "liquid team" that included data scientists, a data engineer, a LIMS engineer, and an AWS architect.
+- I translated the working prototype into a shared technical vision so everyone could build from the same foundation.
+- I set up bi-weekly working meetings to review action items from the previous meeting, walk through results and technical challenges, and adjust plans and track progress against the timeline.
+- I also brought in a genotyping research associate so we could incorporate production-floor feedback and ensure the system worked in real operational conditions.
+- In parallel, I summarized progress and risks clearly for leadership updates, keeping expectations aligned and decisions unblocked.
+
+**Result**
+- The team successfully upgraded the pipeline to a fully automated, cloud-native, LIMS-supported system.
+- We delivered the solution in 10 weeks—two weeks ahead of our original commitment.
+- Production deployment was smooth because the team was already trained, aligned, and confident in the system.
+- The pipeline was immediately ready for high-throughput production use.
+
+**Closing Insight**
+By intentionally building connections across disciplines and creating shared ownership, we co-created a scalable solution that delivered faster—and more smoothly—than promised.
