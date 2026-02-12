@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Interview Quick Navigator</title>
+  <style>
+    :root {
+      --bg: #f8fbff;
+      --panel: #ffffff;
+      --text: #1d2a3a;
+      --muted: #5b6b7a;
+      --accent: #2f80ed;
+      --line: #e6eef6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.5;
+    }
+    .layout {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      max-width: 1800px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 20px 16px;
+      box-shadow: 0 6px 20px rgba(19, 44, 77, 0.06);
+      font-family: "Avenir Next Condensed", -apple-system-condensed, "Helvetica Neue Condensed", "Arial Narrow", sans-serif-condensed, sans-serif;
+    }
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-top: 2px;
+    }
+    .nav-column {
+      display: flex;
+      flex-direction: column;
+    }
+    nav h1 {
+      font-size: 16px;
+      margin: 0 0 6px;
+      font-weight: 600;
+    }
+    .category {
+      margin: 0 0 2px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    nav a {
+      display: block;
+      text-decoration: none;
+      color: var(--text);
+      padding: 4px 1px;
+      border-radius: 6px;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+    nav a:hover {
+      background: #eef5ff;
+      color: var(--accent);
+    }
+    main {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 20px 24px 32px;
+      box-shadow: 0 6px 20px rgba(19, 44, 77, 0.06);
+    }
+    header {
+      margin-bottom: 16px;
+    }
+    header h2 {
+      margin: 0 0 6px;
+      font-size: 22px;
+    }
+    header p {
+      margin: 0;
+      color: var(--muted);
+    }
+    section.story {
+      padding: 20px 0;
+      border-top: 1px solid var(--line);
+      scroll-margin-top: 290px;
+    }
+    section.story:first-of-type {
+      border-top: none;
+    }
+    .story h3 {
+      margin: 0 0 6px;
+      font-size: 20px;
+      color: var(--accent);
+    }
+    .prompt {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .story-content {
+      display: grid;
+      grid-template-columns: 6fr 4fr;
+      gap: 24px;
+    }
+    .star-blocks {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 20px;
+    }
+    .block h4 {
+      margin: 0 0 6px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+    }
+    .block p, .block ul {
+      margin: 0;
+      font-size: 14px;
+    }
+    .block ul { padding-left: 18px; }
+    .qa {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px 14px;
+      background: #f9fbfe;
+      align-self: start;
+    }
+    .qa h4 {
+      margin: 0 0 8px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+    }
+    .qa dl { margin: 0; }
+    .qa dt {
+      font-weight: 600;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+    .qa dd {
+      margin: 4px 0 0 0;
+      color: var(--text);
+      font-size: 14px;
+    }
+    @media (max-width: 980px) {
+      .nav-grid { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .story-content { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <nav>
+      <div class="nav-grid">
+        <div class="nav-column">
+          <div class="category">Focus on Outcome</div>
+          <a href="#story-1">Collaborated with team/other functions to create a vision with holistic impact</a>
+          <a href="#story-2">Paused and reconsidered steps in a larger context to achieve a better outcome</a>
+          <a href="#story-3">Collaborated to define aspirational outcomes that were relevant and impactful</a>
+          <a href="#story-4">Re-imagined and explored future possibilities within a process/role</a>
+        </div>
+
+        <div class="nav-column">
+          <div class="category">Co-create for Customers</div>
+          <a href="#story-5">Reached out to collect different perspectives to achieve better results</a>
+          <a href="#story-6">Ensured customer remained at center and prioritized customer needs</a>
+          <a href="#story-7">Identified and stopped non-value-added activities to improve efficiency</a>
+          <a href="#story-8">Fixed a situation or process which was not working well</a>
+          <a href="#story-9">Drove innovation which led to a better customer experience</a>
+        </div>
+
+        <div class="nav-column">
+          <div class="category">Collaborate with Accountability</div>
+          <a href="#story-10">Dealt with conflicting stakeholder perspectives and delivered on time</a>
+          <a href="#story-11">Broke down silos to connect teams or departments</a>
+          <a href="#story-12">Encouraged diverse voices regardless of seniority or hierarchy</a>
+          <a href="#story-13">Identified and removed roadblocks to accelerate progress</a>
+          <a href="#story-14">Took a risk, and it paid off</a>
+        </div>
+
+        <div class="nav-column">
+          <div class="category">Act, Learn Fast and Evolve</div>
+          <a href="#story-15">Created an environment where innovation and different opinions are welcomed</a>
+          <a href="#story-16">Assisted team/peers in applying an innovative approach to work</a>
+          <a href="#story-17">Approach towards giving/receiving constructive feedback</a>
+          <a href="#story-18">Facilitated connections and expertise to co-create solutions</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="story" id="story-1">
+        <h3>1. GBS Internalization Focus</h3>
+        <p class="prompt">Prompt: Collaborated with team/other functions to create a vision with holistic impact.</p>
+        <div class="story-content">
+          <div class="star-blocks">
+            <div class="block">
+            <h4>Situation</h4>
+            <p>GBS was fully outsourced, limiting turnaround time, cost control, and flexibility for breeding programs.</p>
+          </div>
+          <div class="block">
+            <h4>Task</h4>
+            <p>Lead internalization of the full GBS pipeline across wet lab, instrumentation, bioinformatics, and data delivery.</p>
+          </div>
+          <div class="block">
+            <h4>Action</h4>
+            <ul>
+              <li>Aligned with breeders on what “successful GBS data” meant for selection decisions.</li>
+              <li>Evaluated instruments and reagents and optimized protocols for throughput, quality, and cost.</li>
+              <li>Standardized pipelines, QC metrics, and SOPs; trained lab and data staff.</li>
+              <li>Communicated tradeoffs across science, operations, and leadership.</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>Result</h4>
+            <ul>
+              <li>GBS brought fully in-house and scaled for high-volume breeding programs.</li>
+              <li>Turnaround time dropped from 18 days to 10 days with 93%+ usable data quality.</li>
+              <li>Faster feedback loops and higher confidence in genotyping results.</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>Closing Insight</h4>
+            <p>GBS shifted from a vendor-dependent service to a strategic internal platform with speed, control, and scalability.</p>
+          </div>
+          </div>
+          <div class="qa">
+          <h4>Probing Questions & Strong Answers</h4>
+          <dl>
+            <dt>Q1: How did you define “successful” GBS data?</dt>
+            <dd>A1: We partnered with breeders to tie QC and outputs to selection decisions, not just technical metrics.</dd>
+            <dt>Q2: What operational changes made internalization viable?</dt>
+            <dd>A2: Instrument evaluation, protocol optimization, standardized pipelines, and repeatable SOPs with training.</dd>
+            <dt>Q3: How did you manage cross-functional alignment?</dt>
+            <dd>A3: I communicated tradeoffs across science, operations, and leadership throughout the transition.</dd>
+            <dt>Q4: What was the measurable impact on delivery?</dt>
+            <dd>A4: Turnaround time improved from 18 days to 10 days with 93%+ usable data quality.Breeder direct usage.</dd>
+            <dt>Q5: What organizational impact did this create?</dt>
+            <dd>A5: It created a foundational, scalable internal GBS platform for downstream breeding work.</dd>
+          </dl>
+        </div>
+        </div>
+      </section>
+
+      <section class="story" id="story-2">
+        <h3>2. Rethinking Instrument Selection to Future-Proof an Internal GBS Platform</h3>
+        <p class="prompt">Prompt: Paused and reconsidered steps in a larger context to achieve a better outcome.</p>
+        <div class="story-content">
+          <div class="star-blocks">
+            <div class="block">
+            <h4>Situation</h4>
+            <p>Initial plan was to replicate the vendor’s older sequencing setup to reduce risk during internalization.</p>
+          </div>
+          <div class="block">
+            <h4>Task</h4>
+            <p>Ensure the internal GBS platform would be sustainable and adaptable, not just a replica.</p>
+          </div>
+          <div class="block">
+            <h4>Action</h4>
+            <ul>
+              <li>Confirmed vendor instruments were older and nearing end of lifecycle.</li>
+              <li>Evaluated newer models for throughput, roadmap, service support, and reagent availability.</li>
+              <li>Aligned tradeoffs with leadership and ensured breeding timelines were protected.</li>
+              <li>Updated SOPs, validation, and training for the newer instruments.</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>Result</h4>
+            <ul>
+              <li>Selected a newer-generation Illumina platform aligned with future demand.</li>
+              <li>Reduced long-term operational risk and avoided near-term reinvestment.</li>
+              <li>Pipeline remained scalable and resilient to technology changes.</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>Closing Insight</h4>
+            <p>Pausing for context turned an implementation choice into a strategic investment.</p>
+          </div>
+          </div>
+          <div class="qa">
+          <h4>Probing Questions & Strong Answers</h4>
+          <dl>
+            <dt>Q1: What triggered the reconsideration?</dt>
+            <dd>A1: Direct conversations revealed the vendor instruments were older models near lifecycle end.</dd>
+            <dt>Q2: How did you evaluate the alternatives?</dt>
+            <dd>A2: I assessed throughput, chemistry roadmap, service support, and reagent availability.</dd>
+            <dt>Q3: How did you mitigate disruption risk?</dt>
+            <dd>A3: We aligned the transition with breeding timelines and updated SOPs and validation.</dd>
+            <dt>Q4: What did the new choice enable?</dt>
+            <dd>A4: A more scalable, resilient internal platform with reduced long-term risk.</dd>
+            <dt>Q5: What was the strategic lesson?</dt>
+            <dd>A5: Focusing on sustainability created a better long-term outcome than strict replication.</dd>
+          </dl>
+        </div>
+        </div>
+      </section>
+
+      <section class="story" id="story-3">
+        <h3>3. Defining a Future-Proof NGS Instrument Strategy</h3>
+        <p class="prompt">Prompt: Collaborated to define aspirational outcomes and kept them relevant and impactful.</p>
+        <div class="story-content">
+          <div class="star-blocks">
+            <div class="block">
+            <h4>Situation</h4>
+            <p>Team planned to replicate the outsourced vendor’s sequencing setup during internalization.</p>
+          </div>
+          <div class="block">
+            <h4>Task</h4>
+            <p>Define a future-proof platform that scales with growing breeding demands.</p>
+          </div>
+          <div class="block">
+            <h4>Action</h4>
+            <ul>
+              <li>Collaborated with lab operations, leadership, and vendors on options beyond equivalency.</li>
+              <li>Confirmed vendor instruments were late in lifecycle.</li>
+              <li>Assessed newer platforms for throughput headroom, roadmap, support, and reagent availability.</li>
+              <li>Tied choices to business impact: scalability, cost of ownership, and resilience.</li>
+              <li>Aligned training, SOPs, and validation to avoid disruption.</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>Result</h4>
+            <ul>
+              <li>Selected a newer-generation Illumina platform aligned with future growth.</li>
+              <li>Improved scalability and reduced long-term operational risk.</li>
+              <li>Supported expanding breeding programs without major redesign.</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>Closing Insight</h4>
+            <p>Defining success in long-term impact turned an internalization step into a strategic investment.</p>
+          </div>
+          </div>
+          <div class="qa">
+          <h4>Probing Questions & Strong Answers</h4>
+          <dl>
+            <dt>Q1: What was the aspirational outcome?</dt>
+            <dd>A1: Build a sustainable, future-proof sequencing platform, not just replicate a vendor setup.</dd>
+            <dt>Q2: How did you keep the outcome relevant?</dt>
+            <dd>A2: I tied technical choices to scalability, total cost of ownership, and operational resilience.</dd>
+            <dt>Q3: What inputs informed the decision?</dt>
+            <dd>A3: Vendor discussions, lifecycle status, and criteria like throughput headroom and support.</dd>
+            <dt>Q4: How did you keep delivery on track?</dt>
+            <dd>A4: We aligned training, SOPs, and validation to protect breeding timelines.</dd>
+            <dt>Q5: What value did the strategy create?</dt>
+            <dd>A5: A scalable platform that avoided near-term reinstrumentation and redesign.</dd>
+          </dl>
+        </div>
+        </div>
+      </section>
+
+      <section class="story" id="story-4">
+        <h3>4. Re-imagining Bioinformatics as Decision Infrastructure at Solis (Modular pipeline)</h3>
+        <p class="prompt">Prompt: Re-imagined and explored future possibilities within a process or role.</p>
+        <div class="story-content">
+          <div class="star-blocks">
+            <div class="block">
+              <h4>Situation</h4>
+              <p>Bioinformatics was viewed mainly as fast, technically correct analysis for diverse projects.</p>
+            </div>
+            <div class="block">
+              <h4>Task</h4>
+              <p>Reframe bioinformatics as decision infrastructure with trustworthy, first-pass results.</p>
+            </div>
+            <div class="block">
+              <h4>Action</h4>
+              <ul>
+                <li>Mapped post-delivery pain points with lab, customer-facing teams, and sales.</li>
+                <li>Redesigned pipelines for clarity, consistency, and first-pass success.</li>
+                <li>Introduced standardized QC metrics and early checkpoints.</li>
+                <li>Aligned outputs to customer decision points and documented scalable workflows.</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>Result</h4>
+              <ul>
+                <li>94%+ first-pass QC success across 10,000+ samples.</li>
+                <li>Reduced rework and firefighting; improved customer confidence.</li>
+                <li>Bioinformatics became a predictable, scalable decision backbone.</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>Closing Insight</h4>
+              <p>Reframing the function as decision infrastructure improved trust and scalability.</p>
+            </div>
+          </div>
+          <div class="qa">
+          <h4>Probing Questions & Strong Answers</h4>
+          <dl>
+            <dt>Q1: What shift did you make in bioinformatics’ role?</dt>
+            <dd>A1: From fast analysis to decision infrastructure with clear, trusted first-pass results.</dd>
+            <dt>Q2: How did you identify decision pain points?</dt>
+            <dd>A2: I collaborated with lab operations and customer-facing teams to map confusion points.</dd>
+            <dt>Q3: What changed in the pipeline design?</dt>
+            <dd>A3: Standardized QC, early checkpoints, and clearer reporting aligned to decision points.</dd>
+            <dt>Q4: What was the measurable impact?</dt>
+            <dd>A4: 94%+ first-pass QC success across 10,000+ samples and reduced rework.</dd>
+            <dt>Q5: Why did trust improve?</dt>
+            <dd>A5: Results were clearer, more consistent, and reliable on first delivery.</dd>
+          </dl>
+        </div>
+        </div>
+      </section>
+
+      <section class="story" id="story-5">
+        <h3>5. Collecting Cross-Functional Perspectives to Improve NGS Data Reporting at Solis</h3>
+        <p class="prompt">Prompt: Reached out to collect different perspectives to achieve better results.</p>
+        <div class="story-content">
+          <div class="star-blocks">
+            <div class="block">
+              <h4>Situation</h4>
+              <p>Reports were technically accurate, but customers and teams interpreted results differently.</p>
+            </div>
+            <div class="block">
+              <h4>Task</h4>
+              <p>Make NGS results immediately actionable by incorporating cross-functional input.</p>
+            </div>
+            <div class="block">
+              <h4>Action</h4>
+              <ul>
+                <li>Gathered insights from customer-facing teams on confusion points.</li>
+                <li>Learned from lab operations about upstream factors affecting quality.</li>
+                <li>Worked with scientists and sales to identify decision-critical indicators.</li>
+                <li>Redesigned QC metrics and reporting to emphasize clear thresholds and interpretation notes.</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>Result</h4>
+              <ul>
+                <li>Customers understood data quality and limitations on first delivery.</li>
+                <li>Back-and-forth and re-analysis requests decreased.</li>
+                <li>95%+ first-pass QC success across 100,000+ samples.</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>Closing Insight</h4>
+              <p>Integrating perspectives aligned technical output with real decision-making needs.</p>
+            </div>
+          </div>
+          <div class="qa">
+          <h4>Probing Questions & Strong Answers</h4>
+          <dl>
+            <dt>Q1: Why were reports causing follow-up questions?</dt>
+            <dd>A1: Different groups interpreted metrics differently despite technical accuracy.</dd>
+            <dt>Q2: Who did you involve to fix this?</dt>
+            <dd>A2: Customer-facing teams, lab operations, internal scientists, and sales.</dd>
+            <dt>Q3: What did you change in reporting?</dt>
+            <dd>A3: Highlighted decision-relevant indicators, thresholds, and concise interpretation notes.</dd>
+            <dt>Q4: What was the quality impact?</dt>
+            <dd>A4: 95%+ first-pass QC success across 100,000+ samples.</dd>
+            <dt>Q5: How did this improve outcomes?</dt>
+            <dd>A5: Reduced re-analysis requests and enabled decisions on first delivery.</dd>
+          </dl>
+        </div>
+        </div>
+      </section>
+
+      <section class="story" id="story-6">
+        <h3>6. Designing a Modular NGS Analysis Workflow Around Customer Needs</h3>
+        <p class="prompt">Prompt: Prioritized customer needs and kept them central in a project.</p>
+        <div class="story-content">
+          <div class="star-blocks">
+            <div class="block">
+            <h4>Situation</h4>
+            <p>Clients needed varying levels of analysis; a single fixed pipeline didn’t fit all.</p>
+          </div>
+          <div class="block">
+            <h4>Task</h4>
+            <p>Build a customer-centered workflow that was flexible without losing reliability.</p>
+          </div>
+          <div class="block">
+            <h4>Action</h4>
+            <ul>
+              <li>Collected input from customers, sales, and field teams on analysis needs.</li>
+              <li>Designed modular components: QC, alignment, variant calling, and optional downstream analyses.</li>
+              <li>Standardized inputs, outputs, and QC thresholds for seamless combinations.</li>
+              <li>Documented options for clear expectation setting.</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>Result</h4>
+            <ul>
+              <li>Customers received the depth they needed without unnecessary steps.</li>
+              <li>Turnaround improved for lighter projects while maintaining rigor for deeper analyses.</li>
+              <li>Communication clarity improved and rework decreased.</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>Closing Insight</h4>
+            <p>Flexibility shifted the workflow to a customer-driven model with consistent quality.</p>
+          </div>
+          </div>
+          <div class="qa">
+          <h4>Probing Questions & Strong Answers</h4>
+          <dl>
+            <dt>Q1: What problem did a fixed pipeline create?</dt>
+            <dd>A1: It forced all customers into the same depth of analysis, regardless of need.</dd>
+            <dt>Q2: How did you keep it customer-centered?</dt>
+            <dd>A2: I gathered inputs from customers and sales before designing modules.</dd>
+            <dt>Q3: What modules did you define?</dt>
+            <dd>A3: QC, alignment, variant calling, and optional downstream analyses like GWAS.</dd>
+            <dt>Q4: How did you preserve reliability?</dt>
+            <dd>A4: Standardized inputs, outputs, and QC thresholds across modules.</dd>
+            <dt>Q5: What changed in delivery?</dt>
+            <dd>A5: Faster turnaround for lighter projects and fewer rework cycles overall.</dd>
+          </dl>
+        </div>
+        </div>
+      </section>
+
+      <section class="story" id="story-7">
+        <h3>7. Eliminating Non-Value-Added QC Metrics to Improve NGS Delivery (Solis Modular)</h3>
+        <p class="prompt">Prompt: Identified and stopped non-value-added activities to improve efficiency.</p>
+        <div class="story-content">
+          <div class="star-blocks">
+            <div class="block">
+              <h4>Situation</h4>
+              <p>Excessive QC metrics overwhelmed teams and clients, causing confusion and delays.</p>
+            </div>
+            <div class="block">
+              <h4>Task</h4>
+              <p>Distinguish decision-critical metrics from noise and streamline reporting.</p>
+            </div>
+            <div class="block">
+              <h4>Action</h4>
+              <ul>
+                <li>Reviewed QC metrics with customer-facing teams, lab ops, and scientists.</li>
+                <li>Identified a small set of decision-critical QC metrics.</li>
+                <li>Reported only those metrics while archiving others for diagnostics.</li>
+                <li>Documented rationale and thresholds for transparency.</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>Result</h4>
+              <ul>
+                <li>Reports became clearer and faster to interpret.</li>
+                <li>Decision-making accelerated with fewer clarification requests.</li>
+                <li>Efficiency improved without losing technical rigor.</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>Closing Insight</h4>
+              <p>Separating decision value from diagnostic detail eliminated waste without sacrificing quality.</p>
+            </div>
+          </div>
+          <div class="qa">
+          <h4>Probing Questions & Strong Answers</h4>
+          <dl>
+            <dt>Q1: Why were QC metrics a problem?</dt>
+            <dd>A1: The volume created confusion and extra follow-up with minimal decision value.</dd>
+            <dt>Q2: How did you decide what to keep?</dt>
+            <dd>A2: We reviewed which metrics actually drove go/no-go decisions.</dd>
+            <dt>Q3: What happened to the removed metrics?</dt>
+            <dd>A3: They were archived for diagnostics but removed from routine reporting.</dd>
+            <dt>Q4: How did this affect teams?</dt>
+            <dd>A4: Reports were clearer, and teams spent less time debating low-impact data.</dd>
+            <dt>Q5: How did you maintain rigor?</dt>
+            <dd>A5: By documenting thresholds and retaining diagnostics for continuous improvement.</dd>
+          </dl>
+        </div>
+        </div>
+      </section>
+
+      <section class="story" id="story-8">
+        <h3>8. Fixing GBS Data Flow to Enable Seamless Downstream Use</h3>
+        <p class="prompt">Prompt: Improved a process that was not working well.</p>
+        <div class="story-content">
+          <div class="star-blocks">
+            <div class="block">
+              <h4>Situation</h4>
+              <p>Vendor Excel outputs arrived via email and required manual cleaning before AWS ingestion.</p>
+            </div>
+            <div class="block">
+              <h4>Task</h4>
+              <p>Enable automated, QC-passed data flow into downstream analysis without manual steps.</p>
+            </div>
+            <div class="block">
+              <h4>Action</h4>
+              <ul>
+                <li>Aligned with breeders and data scientists on downstream data needs.</li>
+                <li>Redesigned outputs to include decision-critical QC and compatible formats.</li>
+                <li>Automated post-QC delivery into the AWS data lake landing zone.</li>
+                <li>Removed manual conversions and ad-hoc transfers.</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>Result</h4>
+              <ul>
+                <li>Manual handoffs and reformatting eliminated.</li>
+                <li>Turnaround from sequencing to analysis significantly reduced.</li>
+                <li>Data quality and consistency improved.</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>Closing Insight</h4>
+              <p>Fixing data flow created a seamless end-to-end GBS system for faster decisions.</p>
+            </div>
+          </div>
+          <div class="qa">
+          <h4>Probing Questions & Strong Answers</h4>
+          <dl>
+            <dt>Q1: What was the bottleneck in the original flow?</dt>
+            <dd>A1: Vendor-specific Excel files needed manual cleaning and uploading.</dd>
+            <dt>Q2: How did you design outputs for downstream use?</dt>
+            <dd>A2: I kept decision-critical QC and structured results for pipeline compatibility.</dd>
+            <dt>Q3: What enabled automation?</dt>
+            <dd>A3: Post-QC results were pushed directly into the AWS landing zone.</dd>
+            <dt>Q4: How did this impact turnaround?</dt>
+            <dd>A4: It removed manual handoffs, significantly reducing time to analysis.</dd>
+            <dt>Q5: What broader value did it create?</dt>
+            <dd>A5: A production-ready pipeline feeding breeding and analytics workflows.</dd>
+          </dl>
+        </div>
+        </div>
+      </section>
+
+      <section class="story" id="story-9">
+        <h3>9. Innovating Data Visualization to Improve Internal Customer Experience (interactive dashboard)</h3>
+        <p class="prompt">Prompt: Drove innovation that improved customer experience.</p>
+        <div class="story-content">
+          <div class="star-blocks">
+            <div class="block">
+              <h4>Situation</h4>
+              <p>Internal teams struggled to interpret complex NGS data from static reports.</p>
+            </div>
+            <div class="block">
+              <h4>Task</h4>
+              <p>Improve clarity and speed by rethinking how people interacted with data.</p>
+            </div>
+            <div class="block">
+              <h4>Action</h4>
+              <ul>
+                <li>Gathered needs from bench scientists, sales, and leadership.</li>
+                <li>Built interactive dashboards in RShiny and Streamlit.</li>
+                <li>Provided high-level summaries and drill-down views by audience.</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>Result</h4>
+              <ul>
+                <li>Teams understood data without heavy bioinformatics support.</li>
+                <li>Sales and leadership gained clearer performance narratives.</li>
+                <li>Decision-making accelerated and communication improved.</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>Closing Insight</h4>
+              <p>Tailored visualization turned bioinformatics into an enablement layer.</p>
+            </div>
+          </div>
+          <div class="qa">
+          <h4>Probing Questions & Strong Answers</h4>
+          <dl>
+            <dt>Q1: What problem were you solving for internal customers?</dt>
+            <dd>A1: Slow interpretation of complex datasets from static tables and reports.</dd>
+            <dt>Q2: How did you capture diverse needs?</dt>
+            <dd>A2: I spoke with bench scientists, sales, and leadership about their signals and KPIs.</dd>
+            <dt>Q3: What made the solution innovative?</dt>
+            <dd>A3: Interactive dashboards with summaries and drill-downs tailored to roles.</dd>
+            <dt>Q4: What changed for customer-facing teams?</dt>
+            <dd>A4: They communicated results more consistently and quickly.</dd>
+            <dt>Q5: How did this shift bioinformatics’ role?</dt>
+            <dd>A5: It moved from a bottleneck to an enablement layer for stakeholders.</dd>
+          </dl>
+        </div>
+        </div>
+      </section>
+
+      <section class="story" id="story-10">
+        <h3>10. Delivering a Shared NGS Dashboard Amid Conflicting Stakeholder Needs</h3>
+        <p class="prompt">Prompt: Dealt with conflicting perspectives and delivered on time.</p>
+        <div class="story-content">
+          <div class="star-blocks">
+            <div class="block">
+              <h4>Situation</h4>
+              <p>Bench scientists, sales, and leadership required very different views of the same NGS data.</p>
+            </div>
+            <div class="block">
+              <h4>Task</h4>
+              <p>Deliver one shared solution on time without fragmenting the data.</p>
+            </div>
+            <div class="block">
+              <h4>Action</h4>
+              <ul>
+                <li>Designed a single shared data source for consistency.</li>
+                <li>Built role-based views and subpages by analysis purpose.</li>
+                <li>Added interactive tools for exploration without custom reports.</li>
+                <li>Validated designs with representatives while controlling scope.</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>Result</h4>
+              <ul>
+                <li>Dashboard delivered on time.</li>
+                <li>Stakeholders used a single platform with tailored views.</li>
+                <li>Ad-hoc requests and manual report generation dropped.</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>Closing Insight</h4>
+              <p>Shared data plus flexible exploration resolved conflicts and preserved delivery speed.</p>
+            </div>
+          </div>
+          <div class="qa">
+          <h4>Probing Questions & Strong Answers</h4>
+          <dl>
+            <dt>Q1: What created the stakeholder conflict?</dt>
+            <dd>A1: Each group needed different levels of detail from the same data.</dd>
+            <dt>Q2: How did you keep data consistent?</dt>
+            <dd>A2: I built the dashboard on a single shared data source.</dd>
+            <dt>Q3: What design choice addressed differing needs?</dt>
+            <dd>A3: Role-based views with interactive exploration tools.</dd>
+            <dt>Q4: How did you keep delivery on time?</dt>
+            <dd>A4: Validated with representatives while tightly controlling scope.</dd>
+            <dt>Q5: What operational impact followed?</dt>
+            <dd>A5: Fewer ad-hoc requests and increased alignment around shared data.</dd>
+          </dl>
+        </div>
+        </div>
+      </section>
+
+      <section class="story" id="story-11">
+        <h3>11. Breaking Down Silos to Build an End-to-End GBS Data Pipeline (phase 2)</h3>
+        <p class="prompt">Prompt: Broke down silos to connect teams and deliver results.</p>
+        <div class="story-content">
+          <div class="star-blocks">
+            <div class="block">
+              <h4>Situation</h4>
+              <p>Sequencing data moved in disconnected steps with manual uploads and reformatting.</p>
+            </div>
+            <div class="block">
+              <h4>Task</h4>
+              <p>Connect wet lab, bioinformatics, and cloud teams into a seamless data flow.</p>
+            </div>
+            <div class="block">
+              <h4>Action</h4>
+              <ul>
+                <li>Built a prototype pipeline to align requirements across teams.</li>
+                <li>Collaborated with AWS architects, data engineers, and software engineers.</li>
+                <li>Automated execution, monitoring, and error handling on AWS.</li>
+                <li>Translated scientific requirements into engineering implementation.</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>Result</h4>
+              <ul>
+                <li>Silos removed between wet lab, bioinformatics, and cloud engineering.</li>
+                <li>Automated flow from sequencer through QC into the AWS data lake.</li>
+                <li>Manual uploads and reformatting eliminated.</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>Closing Insight</h4>
+              <p>A shared prototype created alignment that enabled a robust production pipeline.</p>
+            </div>
+          </div>
+          <div class="qa">
+          <h4>Probing Questions & Strong Answers</h4>
+          <dl>
+            <dt>Q1: What evidence showed the teams were siloed?</dt>
+            <dd>A1: Data moved by email and manual reformatting before AWS ingestion.</dd>
+            <dt>Q2: How did you create shared understanding?</dt>
+            <dd>A2: I built a prototype pipeline to make requirements concrete.</dd>
+            <dt>Q3: Who were the key collaborators?</dt>
+            <dd>A3: AWS architects, data engineers, and software engineers.</dd>
+            <dt>Q4: What made the pipeline production-ready?</dt>
+            <dd>A4: Automation for execution, monitoring, and error handling on AWS.</dd>
+            <dt>Q5: What was the operational result?</dt>
+            <dd>A5: Data flowed automatically from sequencer to data lake without manual steps.</dd>
+          </dl>
+        </div>
+        </div>
+      </section>
+
+      <section class="story" id="story-12">
+        <h3>12. Empowering Frontline Voices Through Data Visibility</h3>
+        <p class="prompt">Prompt: Encouraged diverse voices regardless of seniority or hierarchy.</p>
+        <div class="story-content">
+          <div class="star-blocks">
+            <div class="block">
+              <h4>Situation</h4>
+              <p>Frontline sequencing operators lacked visibility into downstream QC and outcomes.</p>
+            </div>
+            <div class="block">
+              <h4>Task</h4>
+              <p>Increase engagement by giving frontline staff access to data and a voice in improvement.</p>
+            </div>
+            <div class="block">
+              <h4>Action</h4>
+              <ul>
+                <li>Encouraged them to share concerns and ideas about the workflow.</li>
+                <li>Built an interactive dashboard to make QC and outcomes visible.</li>
+                <li>Asked what signals mattered and incorporated their feedback.</li>
+                <li>Used the dashboard as a learning and engagement tool.</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>Result</h4>
+              <ul>
+                <li>Dashboard became a daily tool for the team.</li>
+                <li>Research associates gained clarity on quality and downstream impact.</li>
+                <li>Engagement and ownership increased.</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>Closing Insight</h4>
+              <p>Data visibility turned frontline input into meaningful, continuous improvement.</p>
+            </div>
+          </div>
+          <div class="qa">
+          <h4>Probing Questions & Strong Answers</h4>
+          <dl>
+            <dt>Q1: What limited frontline engagement?</dt>
+            <dd>A1: They were disconnected from downstream QC and didn’t see outcomes.</dd>
+            <dt>Q2: How did you remove that barrier?</dt>
+            <dd>A2: I built a dashboard that surfaced QC metrics and results directly.</dd>
+            <dt>Q3: How did you ensure their voices shaped the tool?</dt>
+            <dd>A3: I asked what signals mattered and incorporated their feedback.</dd>
+            <dt>Q4: What behavior change did you observe?</dt>
+            <dd>A4: The team used the dashboard daily and took more ownership.</dd>
+            <dt>Q5: Why was the dashboard more than reporting?</dt>
+            <dd>A5: It served as an education and engagement platform tied to outcomes.</dd>
+          </dl>
+        </div>
+        </div>
+      </section>
+
+      <section class="story" id="story-13">
+        <h3>13. Removing Error-Prone Manual Calculations in GBS Production</h3>
+        <p class="prompt">Prompt: Identified and removed a roadblock to accelerate progress.</p>
+        <div class="story-content">
+          <div class="star-blocks">
+            <div class="block">
+              <h4>Situation</h4>
+              <p>Operators manually calculated library prep and loading steps, causing errors and delays.</p>
+            </div>
+            <div class="block">
+              <h4>Task</h4>
+              <p>Eliminate calculation errors quickly before a full LIMS rollout.</p>
+            </div>
+            <div class="block">
+              <h4>Action</h4>
+              <ul>
+                <li>Standardized the calculation steps into one algorithm.</li>
+                <li>Built a locked Excel calculator with simple input fields.</li>
+                <li>Trained operators and embedded the tool into daily workflow.</li>
+                <li>Later translated the algorithm into LIMS automation.</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>Result</h4>
+              <ul>
+                <li>Manual calculation errors were eliminated.</li>
+                <li>Production speed and consistency improved.</li>
+                <li>LIMS transition had no learning curve.</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>Closing Insight</h4>
+              <p>A lightweight tool removed a bottleneck and laid groundwork for automation.</p>
+            </div>
+          </div>
+          <div class="qa">
+          <h4>Probing Questions & Strong Answers</h4>
+          <dl>
+            <dt>Q1: What was the bottleneck in production?</dt>
+            <dd>A1: Manual calculator-based prep and loading steps that were error-prone.</dd>
+            <dt>Q2: What did your interim solution look like?</dt>
+            <dd>A2: A locked Excel calculator with standardized logic and simple inputs.</dd>
+            <dt>Q3: How did you ensure adoption?</dt>
+            <dd>A3: I trained operators and integrated it into daily workflow.</dd>
+            <dt>Q4: How did it support future automation?</dt>
+            <dd>A4: The same algorithm was later moved into LIMS with no learning curve.</dd>
+            <dt>Q5: What were the immediate results?</dt>
+            <dd>A5: Errors dropped to zero and production speed increased.</dd>
+          </dl>
+        </div>
+        </div>
+      </section>
+
+      <section class="story" id="story-14">
+        <h3>14. Taking a Risk by Self-Initiating a Dashboard to Improve Access to Sequencing Reports</h3>
+        <p class="prompt">Prompt: Took a risk that paid off.</p>
+        <div class="story-content">
+          <div class="star-blocks">
+            <div class="block">
+              <h4>Situation</h4>
+              <p>Teams struggled to access sequencing reports, and no formal project existed.</p>
+            </div>
+            <div class="block">
+              <h4>Task</h4>
+              <p>Improve access without waiting for formal prioritization.</p>
+            </div>
+            <div class="block">
+              <h4>Action</h4>
+              <ul>
+                <li>Self-initiated an interactive dashboard using spare time.</li>
+                <li>Focused on easy access with summaries and drill-downs.</li>
+                <li>Shared early versions and incorporated feedback quickly.</li>
+                <li>Kept scope tight to avoid impacting core responsibilities.</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>Result</h4>
+              <ul>
+                <li>The dashboard was quickly adopted and used frequently.</li>
+                <li>Teams accessed reports on demand without requesting help.</li>
+                <li>Ad-hoc requests dropped significantly.</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>Closing Insight</h4>
+              <p>Calculated risk and focused scope turned a pain point into a trusted resource.</p>
+            </div>
+          </div>
+          <div class="qa">
+          <h4>Probing Questions & Strong Answers</h4>
+          <dl>
+            <dt>Q1: What made this a risk?</dt>
+            <dd>A1: It was outside formal prioritization and could have failed to be adopted.</dd>
+            <dt>Q2: How did you limit the risk?</dt>
+            <dd>A2: I kept the scope tight and built it in spare working time.</dd>
+            <dt>Q3: How did you ensure it met user needs?</dt>
+            <dd>A3: I shared early versions and incorporated feedback quickly.</dd>
+            <dt>Q4: What was the adoption outcome?</dt>
+            <dd>A4: It became a frequently used tool for on-demand reports.</dd>
+            <dt>Q5: What operational change resulted?</dt>
+            <dd>A5: Ad-hoc report requests dropped significantly.</dd>
+          </dl>
+        </div>
+        </div>
+      </section>
+
+      <section class="story" id="story-15">
+        <h3>15. Creating an Innovative and Self-Motivated Sequencing Team</h3>
+        <p class="prompt">Prompt: Created an environment where innovation ideas and different opinions are welcomed.</p>
+        <div class="story-content">
+          <div class="star-blocks">
+            <div class="block">
+            <h4>Situation</h4>
+            <p>Sequencing team work focused on SOP compliance with limited room for innovation.</p>
+          </div>
+          <div class="block">
+            <h4>Task</h4>
+            <p>Increase engagement, ownership, and openness to ideas across the team.</p>
+          </div>
+          <div class="block">
+            <h4>Action</h4>
+            <ul>
+              <li>Explained scientific principles and the “why” behind workflows.</li>
+              <li>Shared project context and impact on downstream decisions.</li>
+              <li>Invited concerns and improvement ideas daily.</li>
+              <li>Encouraged ownership of specific improvement projects.</li>
+              <li>Treated suggestions as learning opportunities.</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>Result</h4>
+            <ul>
+              <li>Team became more engaged and proactive.</li>
+              <li>Workflow enhancements originated from frontline suggestions.</li>
+              <li>Stronger ownership and confidence emerged over time.</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>Closing Insight</h4>
+            <p>Context, openness, and shared ownership cultivated innovation as a daily habit.</p>
+          </div>
+          </div>
+          <div class="qa">
+          <h4>Probing Questions & Strong Answers</h4>
+          <dl>
+            <dt>Q1: How did you move beyond SOP-only execution?</dt>
+            <dd>A1: I explained the scientific rationale and how work impacted decisions.</dd>
+            <dt>Q2: How did you make ideas safe to share?</dt>
+            <dd>A2: I regularly invited concerns and treated suggestions as learning.</dd>
+            <dt>Q3: How did you build ownership?</dt>
+            <dd>A3: By encouraging team members to lead specific improvement projects.</dd>
+            <dt>Q4: What changed in team behavior?</dt>
+            <dd>A4: More proactive ideas and higher engagement in daily work.</dd>
+            <dt>Q5: What lasting impact did this create?</dt>
+            <dd>A5: A self-motivated team that contributed beyond defined roles.</dd>
+          </dl>
+        </div>
+        </div>
+      </section>
+
+      <section class="story" id="story-16">
+        <h3>16. Enabling Sales to Use a Modular, Scalable Approach to NGS Projects</h3>
+        <p class="prompt">Prompt: Assisted peers in applying an innovative approach; challenges and how you overcame them.</p>
+        <div class="story-content">
+          <div class="star-blocks">
+            <div class="block">
+              <h4>Situation</h4>
+              <p>Sales received unstructured requests and lacked technical visibility for scoping.</p>
+            </div>
+            <div class="block">
+              <h4>Task</h4>
+              <p>Help sales scope projects confidently with faster, structured responses.</p>
+            </div>
+            <div class="block">
+              <h4>Action</h4>
+              <ul>
+                <li>Mapped technical workflows into clear customer-facing request categories.</li>
+                <li>Built an automated Excel estimation tool for cost and timelines.</li>
+                <li>Aligned a modular analysis pipeline to match request types.</li>
+                <li>Trained sales on how and why to use the tools.</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>Result</h4>
+              <ul>
+                <li>Sales could scope projects and discuss estimates independently.</li>
+                <li>Back-and-forth requests dropped significantly.</li>
+                <li>Intake and delivery became more predictable.</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>Closing Insight</h4>
+              <p>Modular tools translated complexity into a scalable, sales-friendly approach.</p>
+            </div>
+          </div>
+          <div class="qa">
+          <h4>Probing Questions & Strong Answers</h4>
+          <dl>
+            <dt>Q1: What were the key challenges for sales?</dt>
+            <dd>A1: Limited visibility into tradeoffs and unstructured requests.</dd>
+            <dt>Q2: How did you simplify scoping?</dt>
+            <dd>A2: I created request categories mapped to technical workflows.</dd>
+            <dt>Q3: What tool enabled faster responses?</dt>
+            <dd>A3: An automated Excel estimator for cost and timeline inputs.</dd>
+            <dt>Q4: How did execution stay aligned with quotes?</dt>
+            <dd>A4: A modular pipeline matched the same request types sales used.</dd>
+            <dt>Q5: What was the operational effect?</dt>
+            <dd>A5: Fewer ad-hoc technical requests and more predictable delivery.</dd>
+          </dl>
+        </div>
+        </div>
+      </section>
+
+      <section class="story" id="story-17">
+        <h3>17. Giving and Receiving Constructive Feedback with a Client Post-Project</h3>
+        <p class="prompt">Prompt: Best example of giving and receiving constructive feedback.</p>
+        <div class="story-content">
+          <div class="star-blocks">
+            <div class="block">
+              <h4>Situation</h4>
+              <p>Project delivered on time, but limited replicates reduced statistical conclusiveness.</p>
+            </div>
+            <div class="block">
+              <h4>Task</h4>
+              <p>Invite client feedback and provide constructive guidance without defensiveness.</p>
+            </div>
+            <div class="block">
+              <h4>Action</h4>
+              <ul>
+                <li>Scheduled a post-project feedback meeting and asked for candid input.</li>
+                <li>Added a recommendation section focused on rigor and business value.</li>
+                <li>Explained replicate limitations in clear, non-technical language.</li>
+                <li>Suggested validation experiments and increased replicates for future studies.</li>
+                <li>Emphasized shared intent to enable stronger decisions.</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>Result</h4>
+              <ul>
+                <li>Client appreciated transparency and communication quality.</li>
+                <li>They requested more pre-sale scientific discussions.</li>
+                <li>Trust strengthened and partnership deepened.</li>
+              </ul>
+            </div>
+            <div class="block">
+              <h4>Closing Insight</h4>
+              <p>Two-way, value-driven feedback improved the relationship and future outcomes.</p>
+            </div>
+          </div>
+          <div class="qa">
+          <h4>Probing Questions & Strong Answers</h4>
+          <dl>
+            <dt>Q1: How did you invite constructive feedback?</dt>
+            <dd>A1: I proactively scheduled a post-project meeting and asked for candid input.</dd>
+            <dt>Q2: How did you avoid sounding defensive?</dt>
+            <dd>A2: I framed recommendations around scientific rigor and business value.</dd>
+            <dt>Q3: What specific feedback did you give?</dt>
+            <dd>A3: The low number of replicates limited statistical power; suggested increases.</dd>
+            <dt>Q4: What response did the client have?</dt>
+            <dd>A4: They appreciated transparency and requested more pre-sale discussions.</dd>
+            <dt>Q5: What was the long-term impact?</dt>
+            <dd>A5: It strengthened trust and positioned us as a long-term partner.</dd>
+          </dl>
+        </div>
+        </div>
+      </section>
+
+      <section class="story" id="story-18">
+        <h3>18. Scaling a Prototype into a Cloud-Native, LIMS-Integrated GBS Pipeline (phase 2)</h3>
+        <p class="prompt">Prompt: Built connections and expertise to co-create a solution.</p>
+        <div class="story-content">
+          <div class="star-blocks">
+            <div class="block">
+            <h4>Situation</h4>
+            <p>Phase 1 delivered a stable semi-manual pipeline, but scaling required automation and LIMS integration.</p>
+          </div>
+          <div class="block">
+            <h4>Task</h4>
+            <p>Coordinate cross-functional expertise to deliver a cloud-native, LIMS-integrated pipeline on a tight timeline.</p>
+          </div>
+          <div class="block">
+            <h4>Action</h4>
+            <ul>
+              <li>Built a cross-functional “liquid team” with data scientists, engineers, and AWS/LIMS experts.</li>
+              <li>Translated the prototype into a shared technical vision.</li>
+              <li>Ran bi-weekly working sessions for progress, challenges, and timeline tracking.</li>
+              <li>Included production-floor feedback by adding a genotyping associate.</li>
+              <li>Kept leadership aligned with clear progress and risk updates.</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>Result</h4>
+            <ul>
+              <li>Pipeline upgraded to fully automated, cloud-native, and LIMS-supported.</li>
+              <li>Delivered in 10 weeks, two weeks ahead of the original commitment.</li>
+              <li>Smooth production deployment with trained and confident teams.</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>Closing Insight</h4>
+            <p>Intentional connections and shared ownership enabled faster, smoother delivery.</p>
+          </div>
+          </div>
+          <div class="qa">
+          <h4>Probing Questions & Strong Answers</h4>
+          <dl>
+            <dt>Q1: Why was scaling beyond the prototype necessary?</dt>
+            <dd>A1: The semi-manual pipeline couldn’t support long-term scale or LIMS integration.</dd>
+            <dt>Q2: How did you assemble the right expertise?</dt>
+            <dd>A2: I created a cross-functional team with data, LIMS, and AWS specialists.</dd>
+            <dt>Q3: How did you keep the team aligned?</dt>
+            <dd>A3: A shared technical vision plus bi-weekly working sessions and clear updates.</dd>
+            <dt>Q4: What was the delivery outcome?</dt>
+            <dd>A4: Fully automated, cloud-native, LIMS-supported pipeline delivered in 10 weeks.</dd>
+            <dt>Q5: Why was deployment smooth?</dt>
+            <dd>A5: The team was already trained, aligned, and confident in the system.</dd>
+          </dl>
+        </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
