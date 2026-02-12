@@ -57,6 +57,8 @@ Together with my supervisor, I helped lead the internalization of the entire GBS
 **Closing Insight**
 This wasn't just a technical transition—it shifted GBS from a vendor-dependent service into a strategic internal platform that gave the organization speed, control, and long-term scalability.
 
+[↑ Back to Table of Contents](#table-of-contents)
+
 ---
 
 ### 2. Rethinking Instrument Selection to Future-Proof an Internal GBS Platform
@@ -82,6 +84,8 @@ As part of due diligence, I spoke directly with Illumina representatives and rea
 
 **Closing Insight**
 By pausing to look beyond short-term replication and focusing on sustainability, we turned an implementation decision into a strategic investment for the organization.
+
+[↑ Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -110,6 +114,8 @@ As a team, we stepped back and defined a broader goal: not just to bring GBS in-
 **Closing Insight**
 By defining success in terms of long-term impact rather than short-term replication, we turned an implementation decision into a strategic investment for the organization.
 
+[↑ Back to Table of Contents](#table-of-contents)
+
 ---
 
 ### 4. Re-imagining Bioinformatics as Decision Infrastructure at Solis Genomics
@@ -135,6 +141,8 @@ I stepped back and re-imagined the role of bioinformatics as decision infrastruc
 
 **Closing Insight**
 By re-imagining bioinformatics as a future-ready decision platform, we created a process that scaled with customer demand while improving both efficiency and trust.
+
+[↑ Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -164,6 +172,8 @@ I wanted to improve outcomes by ensuring that NGS results were immediately actio
 **Closing Insight**
 Actively collecting and integrating different perspectives allowed us to deliver better results by aligning technical output with real-world decision-making.
 
+[↑ Back to Table of Contents](#table-of-contents)
+
 ---
 
 ### 6. Designing a Modular NGS Analysis Workflow Around Customer Needs
@@ -191,6 +201,8 @@ I wanted to ensure customers stayed at the center of our work by redesigning the
 **Closing Insight**
 By designing flexibility into the pipeline, we shifted from a one-size-fits-all approach to a customer-driven model that balanced scientific rigor with practical needs.
 
+[↑ Back to Table of Contents](#table-of-contents)
+
 ---
 
 ### 7. Eliminating Non-Value-Added QC Metrics to Improve NGS Delivery
@@ -216,7 +228,7 @@ I wanted to improve efficiency and effectiveness by identifying which QC activit
 
 **Closing Insight**
 By separating decision value from diagnostic detail, we eliminated non-value-added work without sacrificing quality or future learning.
-
+[↑ Back to Table of Contents](#table-of-contents)
 ---
 
 ### 8. Fixing GBS Data Flow to Enable Seamless Downstream Use
@@ -244,6 +256,8 @@ My goal was to improve the process so GBS results could move efficiently from se
 **Closing Insight**
 By fixing the data flow—not just the assay—we transformed GBS from a fragmented output into a seamless, end-to-end system that supported faster and more reliable decision-making.
 
+[↑ Back to Table of Contents](#table-of-contents)
+
 ---
 
 ### 9. Innovating Data Visualization to Improve Internal Customer Experience
@@ -270,6 +284,8 @@ I saw an opportunity to improve the internal customer experience by rethinking h
 
 **Closing Insight**
 By innovating around data visualization and tailoring it to internal customers, we significantly improved clarity, speed, and confidence across the organization.
+
+[↑ Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -299,6 +315,8 @@ My goal was to reconcile these perspectives and deliver a single solution on tim
 **Closing Insight**
 By combining a shared data foundation with flexible, user-driven exploration, I was able to resolve conflicting stakeholder needs and deliver a scalable solution without delaying delivery.
 
+[↑ Back to Table of Contents](#table-of-contents)
+
 ---
 
 ### 11. Breaking Down Silos to Build an End-to-End GBS Data Pipeline
@@ -324,6 +342,8 @@ My goal was to connect these teams and build a seamless, scalable data flow—fr
 
 **Closing Insight**
 By starting with a working prototype and then scaling it collaboratively, I was able to connect teams with very different expertise and deliver a robust, production-ready system.
+
+[↑ Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -351,6 +371,8 @@ I wanted to increase engagement and ownership by giving frontline team members v
 
 **Closing Insight**
 By intentionally bringing frontline perspectives into the design process, I turned data visibility into a shared learning experience and strengthened both engagement and execution.
+
+[↑ Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -380,6 +402,8 @@ My goal was to remove this roadblock quickly—before a full LIMS solution was i
 **Closing Insight**
 By introducing a lightweight, practical solution at the right time, I removed a major operational roadblock and set the foundation for scalable automation.
 
+[↑ Back to Table of Contents](#table-of-contents)
+
 ---
 
 ### 14. Taking a Risk by Self-Initiating a Dashboard to Improve Access to Sequencing Reports
@@ -405,6 +429,8 @@ Instead of waiting for formal prioritization, I decided to self-initiate a solut
 
 **Closing Insight**
 By taking a calculated risk and acting on a clear pain point, I was able to improve access to information and accelerate decision-making—without waiting for formal approval.
+
+[↑ Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -435,6 +461,8 @@ I wanted to create an environment where team members felt motivated to contribut
 **Closing Insight**
 By combining scientific context, openness to ideas, and shared ownership, I created an environment where innovation emerged naturally from everyday work.
 
+[↑ Back to Table of Contents](#table-of-contents)
+
 ---
 
 ### 16. Enabling Sales to Use a Modular, Scalable Approach to NGS Projects
@@ -460,6 +488,8 @@ I wanted to help sales apply a more innovative, structured approach so they coul
 
 **Closing Insight**
 By translating technical complexity into modular, usable tools, I helped sales adopt an innovative approach that accelerated both customer engagement and internal execution.
+
+[↑ Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -488,6 +518,8 @@ My goal was twofold: invite honest feedback from the client on our performance, 
 **Closing Insight**
 By treating feedback as a two-way, value-driven conversation, I was able to improve both the immediate client experience and future project outcomes.
 
+[↑ Back to Table of Contents](#table-of-contents)
+
 ---
 
 ### 18. Scaling a Prototype into a Cloud-Native, LIMS-Integrated GBS Pipeline
@@ -514,3 +546,5 @@ My responsibility was to bring together the right expertise across teams to co-c
 
 **Closing Insight**
 By intentionally building connections across disciplines and creating shared ownership, we co-created a scalable solution that delivered faster—and more smoothly—than promised.
+
+[↑ Back to Table of Contents](#table-of-contents)
