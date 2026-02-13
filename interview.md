@@ -3,30 +3,30 @@
 ## Table of Contents
 
 ### Focus on Outcome
-1. [GBS Internalization Focus](#1-gbs-internalization-focus)
-2. [Rethinking Instrument Selection to Future-Proof an Internal GBS Platform](#2-rethinking-instrument-selection-to-future-proof-an-internal-gbs-platform)
-3. [Defining a Future-Proof NGS Instrument Strategy](#3-defining-a-future-proof-ngs-instrument-strategy)
-4. [Re-imagining modular pipeline for solis agro](#4-modular-pipeline-for-solis-agro)
+1. [collaborated to create a vision that had a holistic impact](#1-gbs-internalization-focus)
+2. [paused and reconsidered your steps in the larger context](#2-rethinking-instrument-selection-to-future-proof-an-internal-gbs-platform)
+3. [collaborated to define aspirational outcomes/results. How to ensure outcomes were relevant and impactful](#3-defining-a-future-proof-ngs-instrument-strategy)
+4. [re-imagined and explored future possibilities](#4-modular-pipeline-for-solis-agro)
 
 ### Co-create for Customers
-5. [Collecting Cross-Functional Perspectives to Improve NGS Data Reporting at Solis Genomics](#5-collecting-cross-functional-perspectives-to-improve-ngs-data-reporting-at-solis-genomics)
-6. [Interactive reports addressed Customer Needs](#6-interactive-reports-addressed-customer-needs)
-7. [Eliminating Non-Value-Added QC Metrics to Improve NGS Delivery](#7-eliminating-non-value-added-qc-metrics-to-improve-ngs-delivery)
-8. [Fixing GBS Data Flow to Enable Seamless Downstream Use](#8-fixing-gbs-data-flow-to-enable-seamless-downstream-use)
-9. [Innovating Data Visualization to Improve Customer Experience](#9-innovating-data-visualization-to-improve-customer-experience)
+5. [reached out to collect different perspectives to achieve better results](#5-collecting-cross-functional-perspectives-to-improve-ngs-data-reporting-at-solis-genomics)
+6. [customer remains at the center? prioritized customer needs in a project](#6-interactive-reports-addressed-customer-needs)
+7. [identified and stopped non-value-added activities, impact efficiency and effectiveness](#7-eliminating-non-value-added-qc-metrics-to-improve-ngs-delivery)
+8. [process not working well and the steps improving it](#8-fixing-gbs-data-flow-to-enable-seamless-downstream-use)
+9. [drove innovation which led to a better customer experience](#9-innovating-data-visualization-to-improve-customer-experience)
 
 ### Collaborate with Accountability
-10. [Delivering a Shared NGS Dashboard Amid Conflicting Stakeholder Needs](#10-delivering-a-shared-ngs-dashboard-amid-conflicting-stakeholder-needs)
-11. [Breaking Down Silos to Build an End-to-End GBS Data Pipeline](#11-breaking-down-silos-to-build-an-end-to-end-gbs-data-pipeline)
-12. [Empowering Frontline Voices Through Data Visibility](#12-empowering-frontline-voices-through-data-visibility)
-13. [Removing Error-Prone Manual Calculations in GBS Production](#13-removing-error-prone-manual-calculations-in-gbs-production)
-14. [Taking a Risk by Self-Initiating a Dashboard to Improve Access to Sequencing Reports](#14-taking-a-risk-by-self-initiating-a-dashboard-to-improve-access-to-sequencing-reports)
+10.  [deal with conflicting perspectives and deliver on time](#10-delivering-a-shared-ngs-dashboard-amid-conflicting-stakeholder-needs)
+11.  [broke down silos to connect people. What was the outcome/result ](#11-breaking-down-silos-to-build-an-end-to-end-gbs-data-pipeline)
+12.  [encouraged diverse voices across the network](#12-empowering-frontline-voices-through-data-visibility)
+13.  [identify and remove roadblocks for your team](#13-removing-error-prone-manual-calculations-in-gbs-production)
+14.  [took a risk, and it paid off](#14-taking-a-risk-by-self-initiating-a-dashboard-to-improve-access-to-sequencing-reports)
 
 ### Act, Learn Fast and Evolve
-15. [Creating an Innovative and Self-Motivated Sequencing Team](#15-creating-an-innovative-and-self-motivated-sequencing-team)
-16. [Enabling Sales to Use a Modular, Scalable Approach to NGS Projects](#16-enabling-sales-to-use-a-modular-scalable-approach-to-ngs-projects)
-17. [Giving and Receiving Constructive Feedback with a Client Post-Project](#17-giving-and-receiving-constructive-feedback-with-a-client-post-project)
-18. [Scaling a Prototype into a Cloud-Native, LIMS-Integrated GBS Pipeline](#18-scaling-a-prototype-into-a-cloud-native-lims-integrated-gbs-pipeline)
+15. [create an environment where innovation ideas and different opinions are welcomed](#15-creating-an-innovative-and-self-motivated-sequencing-team)
+16. [assisted your team/peers in applying an innovative approach to their work](#16-enabling-sales-to-use-a-modular-scalable-approach-to-ngs-projects)
+17. [best approach towards giving/receiving constructive feedback](#17-giving-and-receiving-constructive-feedback-with-a-client-post-project)
+18. [facilitate/build connections and expertise to co-create solutions](#18-scaling-a-prototype-into-a-cloud-native-lims-integrated-gbs-pipeline)
 
 ---
 
