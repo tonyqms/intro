@@ -33,7 +33,8 @@
 ## Focus on Outcome
 
 ### 1. GBS Internalization Focus
-**Prompt:** An example of a time when you collaborated with your team/peer or other functions to create a vision that had a holistic impact on the organization or project
+**Prompt:** 
+An example of a time when you collaborated with your team/peer or other functions to create a vision that had a holistic impact on the organization or project
 
 **Situation**
 When I joined Benson Hill, Genotyping-by-Sequencing (GBS) was fully outsourced. While it worked operationally, it limited turnaround time, cost control, and flexibility for breeding programs that needed fast, iterative decision-making.
@@ -224,7 +225,9 @@ I wanted to improve efficiency and effectiveness by identifying which QC activit
 
 **Closing Insight**
 By separating decision value from diagnostic detail, we eliminated non-value-added work without sacrificing quality or future learning.
+
 [↑ Back to Table of Contents](#table-of-contents)
+
 ---
 
 ### 8. Fixing GBS Data Flow to Enable Seamless Downstream Use
