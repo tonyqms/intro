@@ -6,14 +6,14 @@
 1. [GBS Internalization Focus](#1-gbs-internalization-focus)
 2. [Rethinking Instrument Selection to Future-Proof an Internal GBS Platform](#2-rethinking-instrument-selection-to-future-proof-an-internal-gbs-platform)
 3. [Defining a Future-Proof NGS Instrument Strategy](#3-defining-a-future-proof-ngs-instrument-strategy)
-4. [Re-imagining Bioinformatics as Decision Infrastructure at Solis Genomics](#4-re-imagining-bioinformatics-as-decision-infrastructure-at-solis-genomics)
+4. [Re-imagining modular pipeline for solis agro](#4-modular-pipeline-for-solis-agro)
 
 ### Co-create for Customers
 5. [Collecting Cross-Functional Perspectives to Improve NGS Data Reporting at Solis Genomics](#5-collecting-cross-functional-perspectives-to-improve-ngs-data-reporting-at-solis-genomics)
-6. [Designing a Modular NGS Analysis Workflow Around Customer Needs](#6-designing-a-modular-ngs-analysis-workflow-around-customer-needs)
+6. [Interactive reports addressed Customer Needs](#6-interactive-reports-addressed-customer-needs)
 7. [Eliminating Non-Value-Added QC Metrics to Improve NGS Delivery](#7-eliminating-non-value-added-qc-metrics-to-improve-ngs-delivery)
 8. [Fixing GBS Data Flow to Enable Seamless Downstream Use](#8-fixing-gbs-data-flow-to-enable-seamless-downstream-use)
-9. [Innovating Data Visualization to Improve Internal Customer Experience](#9-innovating-data-visualization-to-improve-internal-customer-experience)
+9. [Innovating Data Visualization to Improve Customer Experience](#9-innovating-data-visualization-to-improve-customer-experience)
 
 ### Collaborate with Accountability
 10. [Delivering a Shared NGS Dashboard Amid Conflicting Stakeholder Needs](#10-delivering-a-shared-ngs-dashboard-amid-conflicting-stakeholder-needs)
@@ -118,29 +118,27 @@ By defining success in terms of long-term impact rather than short-term replicat
 
 ---
 
-### 4. Re-imagining Bioinformatics as Decision Infrastructure at Solis Genomics
+### 4. modular pipeline for solis agro
 **Prompt:** A situation where you have re-imagined and explored future possibilities within a process/your role
 
 **Situation**
-When I joined Solis Genomics, bioinformatics was primarily viewed as an analysis function—pipelines focused on generating technically correct results as quickly as possible for a wide range of customer projects.
+At Solis, we received frequent client requests for different sequencing and downstream analyses. Each request required ad hoc evaluation from bioinformatics, and sales relied heavily on us to estimate feasibility, cost, and timeline. Over time, this reactive model became a bottleneck.
 
 **Task**
-I stepped back and re-imagined the role of bioinformatics as decision infrastructure, not just data processing. The future state I explored was one where customers and internal teams could trust results on first delivery, clearly understand limitations, and make decisions without repeated back-and-forth.
+I wanted to re-imagine the process so it could scale sustainably without requiring deep technical involvement for every new request. This wasn’t about changing the science — it was about making the science operable at scale.
 
 **Action**
-- I collaborated with lab operations, customer-facing teams, and sales to understand where customers struggled after data delivery.
-- I redesigned pipelines and QC frameworks to emphasize first-pass success, clarity, and consistency, rather than maximizing raw outputs.
-- I introduced standardized QC metrics, early checkpoints, and clearer reporting so issues were identified proactively.
-- I aligned technical choices with customer decision points and documented workflows so the system could scale across projects.
+- I analyzed historical requests and mapped the most common ones into linear, repeatable workflows, while isolating rare requests as optional, manual extensions. 
+- I redesigned the analysis pipeline into modular components that could be combined to support many request types. 
+- I then aligned these modules with a simple workflow map and built an Excel-based cost and timeline calculator, driven by a few parameters.
 
 **Result**
-- Achieved 94%+ first-pass QC success across 10,000+ samples.
-- Reduced rework and internal firefighting.
-- Improved customer confidence and smoother post-delivery conversations.
-- Bioinformatics shifted from a reactive support role to a predictable, scalable decision backbone for the organization.
+- This shifted the model from reactive customization to a flexible, future-ready system. 
+- Sales and operations could confidently support presales
+- analysis became more predictable, scalable, and sustainable.
 
 **Closing Insight**
-By re-imagining bioinformatics as a future-ready decision platform, we created a process that scaled with customer demand while improving both efficiency and trust.
+By re-imagining bioinformatics analysis into modular pipeline, we created a feasible and efficient system that presale and operational work can be easily done. 
 
 [↑ Back to Table of Contents](#table-of-contents)
 
@@ -176,30 +174,28 @@ Actively collecting and integrating different perspectives allowed us to deliver
 
 ---
 
-### 6. Designing a Modular NGS Analysis Workflow Around Customer Needs
+### 6. interactive reports addressed Customer Needs
 **Prompt:** How do you ensure that the customer remains at the center of your team's work? An example of how you have prioritized customer needs in a project
 
 **Situation**
-At Solis Genomics, our clients had very different analysis needs. Some only wanted high-confidence QC and variant calls, while others needed deeper downstream analyses like GWAS or population structure. A single, fixed pipeline didn't serve all customers equally well.
+In a sequencing project at Solis, a client asked for population structure analysis comparing their crop germplasm to public datasets. They had about 90 lines with replicates, and the goal was to guide breeding decisions by understanding relationships among germplasm.
 
 **Task**
-I wanted to ensure customers stayed at the center of our work by redesigning the analysis workflow so it could be customized to each client's scientific goals without sacrificing reliability or turnaround time.
+My goal was to ensure the results supported real customer decisions, not just technical completeness. I asked myself whether our usual PDF report would truly enable the client to explore and interpret the data.
 
 **Action**
-- I actively gathered input from customers, sales, and field teams to understand what level of analysis each client actually needed.
-- Based on this, I redesigned the pipeline as a set of modular components: QC and data validation, reference genome alignment, variant calling, and optional downstream analyses such as GWAS and population structure.
-- Each module could be included or excluded depending on customer requirements.
-- I standardized inputs, outputs, and QC thresholds so modules could be combined seamlessly and still scale.
-- I documented the options clearly so customer-facing teams could set expectations upfront.
+- When generating the plots, I realized the static format was a bottleneck. 
+- Too many lines meant legends were unreadable, and critical information was effectively hidden.
+- Rather than simplifying the analysis or dropping labels, I shifted focus to how the customer would interact with the results. 
+- I built an HTML report with interactive visualizations where users could zoom, pan, rotate, and hover to inspect individual lines. 
+- This let them explore the data at their own pace and from multiple angles.
 
 **Result**
-- Customers received exactly the depth of analysis they needed, without paying for or waiting on unnecessary steps.
-- Turnaround time improved for lighter-weight projects while maintaining rigor for deeper analyses.
-- Communication with customers became clearer, and rework decreased.
-- The workflow scaled efficiently across diverse projects while staying customer-centric.
+- The client was able to clearly identify population structure, relationships to public germplasm, and outliers relevant to breeding. 
+- They explicitly told us the report helped them think differently about their breeding strategy.
 
 **Closing Insight**
-By designing flexibility into the pipeline, we shifted from a one-size-fits-all approach to a customer-driven model that balanced scientific rigor with practical needs.
+This project reinforced my approach: customer-centric bioinformatics means optimizing for understanding, not just output. The format of delivery can be as important as the analysis itself.
 
 [↑ Back to Table of Contents](#table-of-contents)
 
@@ -260,30 +256,28 @@ By fixing the data flow—not just the assay—we transformed GBS from a fragmen
 
 ---
 
-### 9. Innovating Data Visualization to Improve Internal Customer Experience
+### 9. Innovating Data Visualization to Improve Customer Experience
 **Prompt:** A time where you drove innovation which led to a better customer experience
 
 **Situation**
-At Solis Genomics, NGS results were technically solid, but internal customers—bench scientists, sales, and leadership—often struggled to quickly interpret complex datasets from static tables or reports. This created delays, repeated explanations, and inconsistent messaging to external clients.
+At Solis, sequencing project results were typically delivered as static PDF reports. For one project, a client wanted to compare their crop germplasm genotypes against public datasets to understand population structure and relationships for breeding decisions. The dataset included around 90 lines with three replicates each.
 
 **Task**
-I saw an opportunity to improve the internal customer experience by rethinking how we presented NGS data—not changing the data itself, but how people interacted with it.
+Our responsibility was to provide analyses that were not only scientifically correct, but genuinely useful for the client’s decision-making. I realized early that the standard PDF format would limit the value of this analysis.
 
 **Action**
-- I spoke with bench scientists to understand what QC and performance signals they needed to troubleshoot experiments.
-- I worked with sales and customer-facing teams to identify which summaries helped them communicate value and limitations clearly.
-- I aligned with leadership on high-level KPIs they cared about—throughput, success rates, and trends.
-- Based on these perspectives, I built interactive dashboards using tools like RShiny and Streamlit that allowed users to explore QC metrics, coverage, and performance at different levels of detail.
-- The dashboards provided both high-level summaries and drill-down views, tailored to different audiences.
+- When I reviewed the PCA clustering and distance heatmap plots, it became clear that static figures couldn’t handle the scale and complexity — legends were overcrowded, line names were unreadable, and interpretation required constant cross-referencing.
+- Instead of forcing the results into a PDF, I proposed delivering the report as an interactive HTML document. 
+- I built the report using Plotly-based visualizations that allowed users to zoom, rotate, and hover over data points to see line identities directly. 
+- This preserved all the information while making the analysis explorable.
 
 **Result**
-- Internal teams could quickly understand data without relying on deep bioinformatics support.
-- Sales and leadership gained clearer, more consistent narratives around performance and customer outcomes.
-- Decision-making accelerated, and cross-team communication improved.
-- Bioinformatics shifted from a bottleneck to an enablement layer for internal stakeholders.
+- The client immediately understood patterns that were hard to see in static plots and 
+- could directly relate individual germplasm lines to public references. 
+- They described the report as “beyond expectations” and far more actionable for breeding decisions.
 
 **Closing Insight**
-By innovating around data visualization and tailoring it to internal customers, we significantly improved clarity, speed, and confidence across the organization.
+- This experience reinforced for me that innovation in bioinformatics doesn’t always mean new algorithms — sometimes it means rethinking how results are delivered so customers can actually use them.
 
 [↑ Back to Table of Contents](#table-of-contents)
 
@@ -469,22 +463,21 @@ By combining scientific context, openness to ideas, and shared ownership, I crea
 **Prompt:** A situation where you assisted your team/peers in applying an innovative approach to their work. What are the challenges, and how did you overcome them
 
 **Situation**
-At Solis Genomics, the sales team frequently came to the technical team with open-ended questions like "Can we do this?", "How long will it take?", and "What will it cost?". Because they didn't have deep technical background, it was hard for them to distinguish between different request types, which slowed responses and created back-and-forth friction.
+At Solis agro, Sales and operations managers often depended on bioinformatics to interpret client sequencing requests and estimate cost and turnaround time, because they lacked deep technical background. This slowed presales discussions and created constant back-and-forth.
 
 **Task**
-I wanted to help sales apply a more innovative, structured approach so they could scope projects confidently, respond faster to customers, and rely less on ad-hoc technical consultations for basic cost and timeline estimates.
+My goal was to help them adopt a more efficient, self-sufficient way of handling requests without too much back and forth or oversimplifying the science. This wasn’t about changing the science — it was about making the science operable at scale.
 
 **Action**
-- I designed a workflow map that translated complex technical processes into clear, customer-facing request categories.
-- I built an automated Excel-based estimation tool where sales could input key parameters and immediately see expected cost and timeline.
-- In parallel, I implemented a modular analysis pipeline aligned to the major request types, so technical execution matched what sales was quoting.
-- I walked the sales team through how to use these tools and explained the "why" behind each module so they could speak confidently with customers.
-
+- I translated common client requests into clear workflow modules 
+- created a visual map showing how different requests mapped to different analysis components. 
+- I walked sales and operations through what each module meant scientifically and operationally. 
+- To support adoption, I built an Excel tool that allowed them to estimate cost and timeline using a few intuitive inputs, without exposing technical complexity.
+- 
 **Result**
-- Sales could scope projects and discuss cost and timelines independently.
-- Back-and-forth requests to the technical team dropped significantly.
-- The request intake and delivery process became more streamlined and predictable.
-- Sales conversations became more confident, accurate, and technically grounded.
+- They quickly gained confidence handling presales conversations and paperwork independently
+- The team reduced reliance on bioinformatics for routine questions 
+- collaboration became faster and more effective.
 
 **Closing Insight**
 By translating technical complexity into modular, usable tools, I helped sales adopt an innovative approach that accelerated both customer engagement and internal execution.
