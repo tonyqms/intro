@@ -9,14 +9,14 @@
 4. [re-imagined and explored future possibilities](#4-modular-pipeline-for-solis-agro)
 
 ### Co-create for Customers
-5. [reached out to collect different perspectives to achieve better results](#5-collecting-cross-functional-perspectives-to-improve-ngs-data-reporting-at-solis-genomics)
+5. [reached out to collect different perspectives to achieve better results](#5-benson-hill-cherry-picking-in-gbs)
 6. [customer remains at the center? prioritized customer needs in a project](#6-interactive-reports-addressed-customer-needs)
 7. [identified and stopped non-value-added activities, impact efficiency and effectiveness](#7-eliminating-non-value-added-qc-metrics-to-improve-ngs-delivery)
 8. [process not working well and the steps improving it](#8-fixing-gbs-data-flow-to-enable-seamless-downstream-use)
 9. [drove innovation which led to a better customer experience](#9-innovating-data-visualization-to-improve-customer-experience)
 
 ### Collaborate with Accountability
-10.  [deal with conflicting perspectives and deliver on time](#10-delivering-a-shared-ngs-dashboard-amid-conflicting-stakeholder-needs)
+10.  [deal with conflicting perspectives and deliver on time](#10-internalizing-amplicon-seq-with-lower-seq-depth)
 11.  [broke down silos to connect people. What was the outcome/result ](#11-breaking-down-silos-to-build-an-end-to-end-gbs-data-pipeline)
 12.  [encouraged diverse voices across the network](#12-empowering-frontline-voices-through-data-visibility)
 13.  [identify and remove roadblocks for your team](#13-removing-error-prone-manual-calculations-in-gbs-production)
@@ -147,29 +147,34 @@ By re-imagining bioinformatics analysis into modular pipeline, we created a feas
 
 ## Co-create for Customers
 
-### 5. Collecting Cross-Functional Perspectives to Improve NGS Data Reporting at Solis Genomics
+### 5. benson hill cherry picking in gbs
 **Prompt:** A situation where you actively reached out to others to collect different perspectives to achieve better results
 
 **Situation**
-At Solis Genomics, NGS results were technically accurate, but we often saw follow-up questions from customers and internal teams because different groups interpreted the data differently.
+- In a breeding program of Benson Hill, we identified that in certain generations, breeders could use targeted marker assays to perform early selection and significantly reduce the total number of samples sent for GBS. This would reduce overall cost and focus GBS on the most informative material. However, implementing this required adding a “cherry-picking” step into a very tight 10-day production cycle.
+
+- Originally, marker assays and GBS ran in parallel within that cycle. Cherry-picking would require these steps to run consecutively, which on paper would consume buffer time and risk missing delivery commitments.
 
 **Task**
-I wanted to improve outcomes by ensuring that NGS results were immediately actionable, not just correct, so I proactively sought perspectives beyond my own bioinformatics team.
+- My responsibility was to determine whether this new workflow was feasible end-to-end—and if so, design it in a way that preserved the 10-day turnaround while delivering real business value.
 
 **Action**
-- I reached out to customer-facing teams to understand where customers typically got confused or needed extra explanation.
-- I spoke with lab operations to learn which upstream factors most often affected downstream data quality.
-- I collaborated with internal scientists and sales to understand what decisions were actually being made with the data.
-- I synthesized these perspectives to redesign QC metrics and reporting—highlighting decision-relevant indicators, clear thresholds, and concise interpretation notes rather than raw technical detail alone.
+- I recognized this wasn’t a problem I could solve from a single perspective, so I actively reached out to multiple teams.
+
+- First, I worked with breeders to understand their selection logic and how much time flexibility truly existed around decision points.
+- Next, I aligned with the plant growth team to understand physical constraints in growth and sampling timing that couldn’t be compressed.
+- In parallel, I partnered with data engineering to assess whether ingestion and downstream processing timelines could be optimized to recover lost time from the lab side.
+
+- Based on these perspectives, we redesigned the workflow and ran validation dry-runs, treating them as if they were real production deliveries. This allowed us to test the full system—not just individual steps—and identify where small gains across teams could collectively preserve the 10-day cycle.
 
 **Result**
-- Customers could understand data quality and limitations on first delivery.
-- Internal back-and-forth and re-analysis requests decreased significantly.
-- We achieved 95%+ first-pass QC success across 100,000+ samples.
-- Bioinformatics became a clearer bridge between sequencing output and customer decisions.
+- The new workflow was successfully implemented without extending turnaround time. 
+- We reduced the total number of GBS samples, lowered overall cost, and maintained delivery commitments. 
+- Because all teams had been involved early, execution was smooth and adoption was high. 
+- Importantly, breeders gained a more efficient decision path, and production avoided late surprises.
 
 **Closing Insight**
-Actively collecting and integrating different perspectives allowed us to deliver better results by aligning technical output with real-world decision-making.
+- This experience reinforced that better results come from designing across biological, operational, and data constraints together—not optimizing any single component in isolation.
 
 [↑ Back to Table of Contents](#table-of-contents)
 
@@ -270,8 +275,8 @@ Our responsibility was to provide analyses that were not only scientifically cor
 
 **Action**
 - When I reviewed the PCA clustering and distance heatmap plots, it became clear that static figures couldn’t handle the scale and complexity — legends were overcrowded, line names were unreadable, and interpretation required constant cross-referencing.
-- Instead of forcing the results into a PDF, I proposed delivering the report as an interactive HTML document. 
-- I built the report using Plotly-based visualizations that allowed users to zoom, rotate, and hover over data points to see line identities directly. 
+- Instead of forcing the results into a PDF, I proposed delivering the report as an interactive HTML document.
+- I built the report using Plotly-based visualizations that allowed users to zoom, rotate, and hover over data points to see line identities directly.
 - This preserved all the information while making the analysis explorable.
 
 **Result**
@@ -288,29 +293,31 @@ Our responsibility was to provide analyses that were not only scientifically cor
 
 ## Collaborate with Accountability
 
-### 10. Delivering a Shared NGS Dashboard Amid Conflicting Stakeholder Needs
+### 10. internalizing amplicon seq with lower seq depth
 **Prompt:** A situation where you had to deal with conflicting perspectives of different stakeholders and still deliver on time
 
 **Situation**
-At Solis Genomics, different internal stakeholders needed very different views of the same NGS data. Bench scientists wanted detailed QC trends, sales needed simplified summaries they could explain to customers, and leadership wanted high-level performance indicators. These conflicting needs often caused delays and repeated custom requests, but the team still needed a solution delivered quickly.
+- At Benson Hill, amplicon sequencing for gene-editing validation was outsourced. When we brought sequencing in-house, it was natural to keep the same parameters that had been used with the vendor. However, When we analyzed editing validation data during internalization, I realized those parameters were designed for an earlier phase of the program, when editing efficiency was low. By the time we internalized the workflow, editing efficiency had improved substantially, meaning the original sequencing depth was likely far beyond what was biologically necessary.
+
+- This created tension. Discovery scientists preferred to keep parameters unchanged to minimize perceived risk, while operations needed higher throughput and lower cost to support a growing number of samples. From a bioinformatics perspective, the key question was whether reduced depth would still preserve biological conclusions across editing efficiencies
 
 **Task**
-My goal was to reconcile these perspectives and deliver a single solution on time—without fragmenting the data or creating multiple, hard-to-maintain systems.
+My responsibility was to reconcile these conflicting perspectives and deliver a production-ready internal workflow—without compromising scientific validity or slowing down deployment.
 
 **Action**
-- I designed the dashboard around a shared, single data source to maintain consistency and trust.
-- To address different needs, I built role-based views and subpages, each aligned with a specific analysis purpose.
-- I added interactive tools—time-window sliders, zoom in/out, cursor hovering for detailed values, and data download options—so users could explore the same data at different levels of depth without needing custom reports.
-- I validated designs with representatives from each group to ensure the solution met their core needs while keeping scope controlled so we stayed on schedule.
+- Rather than pushing for a change by opinion, I proposed an evidence-based approach.
+- I designed a validation study that compared the original high sequencing depth with a much lower depth—about one-fifth of the original—across guide RNAs with high, medium, and low editing efficiencies.
+- We ran both configurations side-by-side and evaluated whether reduced depth still produced robust, reproducible editing calls and conclusions. 
+- Throughout the process, I worked closely with discovery scientists to agree on success criteria in advance, so the evaluation was aligned with their scientific standards, not just operational goals.
 
 **Result**
-- The dashboard was delivered on time.
-- Stakeholders with conflicting perspectives all used the same platform, but through different analytical lenses.
-- Ad-hoc requests and manual report generation dropped significantly.
-- Alignment and confidence improved because everyone was working from the same data, just interpreted differently.
+- The results showed that the lower sequencing depth produced equivalent conclusions across all tested conditions. 
+- Based on this data, the discovery team agreed to update the protocol.
+- When we completed internalization, the new workflow was about 3× faster, 5× cheaper, and expanded our sequencing capacity by roughly fivefold, without sacrificing data quality. 
+- Importantly, alignment across discovery, operations, and leadership meant the rollout was smooth and on schedule.
 
 **Closing Insight**
-By combining a shared data foundation with flexible, user-driven exploration, I was able to resolve conflicting stakeholder needs and deliver a scalable solution without delaying delivery.
+- This experience reinforced that in production genomics, the hardest problems aren’t technical—they’re about earning alignment through data and designing changes that respect both scientific rigor and operational reality.
 
 [↑ Back to Table of Contents](#table-of-contents)
 

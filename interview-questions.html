@@ -373,7 +373,7 @@
       </section>
 
       <section class="story" id="story-4">
-        <h3>4. Re-imagining Bioinformatics as Decision Infrastructure at Solis (Modular pipeline)</h3>
+        <h3>4. Re-imagining Bioinformatics analysis as Modular pipelines</h3>
         <p class="prompt">Prompt: Re-imagined and explored future possibilities within a process or role.</p>
         <div class="story-content">
           <div class="star-blocks">
@@ -431,53 +431,63 @@
       </section>
 
       <section class="story" id="story-5">
-        <h3>5. Collecting Cross-Functional Perspectives to Improve NGS Data Reporting at Solis</h3>
+        <h3>5. Cherrypicking in GBS for Benson Hill Breeding</h3>
         <p class="prompt">Prompt: Reached out to collect different perspectives to achieve better results.</p>
         <div class="story-content">
           <div class="star-blocks">
             <div class="block">
               <h4>Situation</h4>
-              <p>Reports were technically accurate, but customers and teams interpreted results differently.</p>
+              <p>Certain generations of breeding lines can marker selected and then GBS final selected, which make it cheaper but it will
+                add additional cherrypicking step. it might have impact on the tight timeline commitment.
+              </p>
             </div>
             <div class="block">
               <h4>Task</h4>
-              <p>Make NGS results immediately actionable by incorporating cross-functional input.</p>
+              <p>determine whether this new workflow was feasible end-to-end, delivering the results without missing timeline.</p>
             </div>
             <div class="block">
               <h4>Action</h4>
               <ul>
-                <li>Gathered insights from customer-facing teams on confusion points.</li>
-                <li>Learned from lab operations about upstream factors affecting quality.</li>
-                <li>Worked with scientists and sales to identify decision-critical indicators.</li>
-                <li>Redesigned QC metrics and reporting to emphasize clear thresholds and interpretation notes.</li>
+                <li>actively reached out to multiple teams</li>
+                <li>First, breeder selection logic to make it automatic and immediate.</li>
+                <li>Next, plant growth team about physical constraints in growth and sampling timing that couldn’t be compressed.</li>
+                <li>aslo with data engineering to assess whether ingestion and downstream processing timelines could be optimized 
+                  to recover lost time from the lab side.</li>
+                <li>based on those,we redesigned the workflow and ran validation dry-runs with them</li>
               </ul>
             </div>
             <div class="block">
               <h4>Result</h4>
               <ul>
-                <li>Customers understood data quality and limitations on first delivery.</li>
-                <li>Back-and-forth and re-analysis requests decreased.</li>
-                <li>95%+ first-pass QC success across 100,000+ samples.</li>
+                <li>successfully implemented without impacting the timeline.</li>
+                <li>reduced the total number of GBS samples, lowered overall cost</li>
+                <li>involved early, execution was smooth and adoption was high.</li>
+                <li>breeders gained a more efficient decision path, and production avoided late surprises</li>
               </ul>
             </div>
             <div class="block">
               <h4>Closing Insight</h4>
-              <p>Integrating perspectives aligned technical output with real decision-making needs.</p>
+              <p>better results come from designing across constraints from biological, operational, and data perspectives together</p>
             </div>
           </div>
           <div class="qa">
           <h4>Probing Questions & Strong Answers</h4>
           <dl>
-            <dt>Q1: Why were reports causing follow-up questions?</dt>
-            <dd>A1: Different groups interpreted metrics differently despite technical accuracy.</dd>
-            <dt>Q2: Who did you involve to fix this?</dt>
-            <dd>A2: Customer-facing teams, lab operations, internal scientists, and sales.</dd>
-            <dt>Q3: What did you change in reporting?</dt>
-            <dd>A3: Highlighted decision-relevant indicators, thresholds, and concise interpretation notes.</dd>
-            <dt>Q4: What was the quality impact?</dt>
-            <dd>A4: 95%+ first-pass QC success across 100,000+ samples.</dd>
-            <dt>Q5: How did this improve outcomes?</dt>
-            <dd>A5: Reduced re-analysis requests and enabled decisions on first delivery.</dd>
+            <dt>Q1: What was the biggest risk in changing the workflow?</dt>
+            <dd>A1: The biggest risk was assuming time savings in one area would automatically compensate elsewhere. 
+              That’s why we validated the full cycle with dry runs rather than relying on theoretical timelines.</dd>
+            <dt>Q2: How did you handle tradeoffs between cost and speed?</dt>
+            <dd>A2: We prioritized preserving turnaround time first. Cost savings were only acceptable if they didn’t compromise delivery reliability. 
+              That constraint guided all decisions.</dd>
+            <dt>Q3: How did bioinformatics contribute beyond execution?</dt>
+            <dd>A3: Bioinformatics helped define where selection could happen safely, ensured data readiness aligned with decision points, 
+              and coordinated with engineering to reduce downstream latency.</dd>
+            <dt>Q4: What would you do differently next time?</dt>
+            <dd>A4: I would formalize the dry-run framework earlier 
+              so future workflow changes can be evaluated faster with less coordination overhead.</dd>
+            <dt>Q5: What does this say about your approach to collaboration?</dt>
+            <dd>A5: I actively seek upstream and downstream perspectives early, especially when changes affect timing, biology, and data flow simultaneously. 
+              That’s how you avoid surprises in production systems.</dd>
           </dl>
         </div>
         </div>
@@ -698,53 +708,61 @@
       </section>
 
       <section class="story" id="story-10">
-        <h3>10. Delivering a Shared NGS Dashboard Amid Conflicting Stakeholder Needs</h3>
+        <h3>10. Internalizing Amplicon Sequencing with Lower Sequencing Depth</h3>
         <p class="prompt">Prompt: Dealt with conflicting perspectives and delivered on time.</p>
         <div class="story-content">
           <div class="star-blocks">
             <div class="block">
               <h4>Situation</h4>
-              <p>Bench scientists, sales, and leadership required very different views of the same NGS data.</p>
+              <p>When internalizing amplicon sequencing for editing validation, discovery scientists want to maintain the old seq depth for old, lower editing efficiency,
+                while I think the seq depth should be decreased given the higher editing efficiency and the need to deliver more samples. 
+                This created a conflict between maintaining consistency with past data and adapting to new realities for larger delivery capacity.
+              </p>
             </div>
             <div class="block">
               <h4>Task</h4>
-              <p>Deliver one shared solution on time without fragmenting the data.</p>
+              <p>As a bioinformtician, the key question is whether reduced depth would still preserve biological conclusions across editing efficiencies .</p>
             </div>
             <div class="block">
               <h4>Action</h4>
               <ul>
-                <li>Designed a single shared data source for consistency.</li>
-                <li>Built role-based views and subpages by analysis purpose.</li>
-                <li>Added interactive tools for exploration without custom reports.</li>
-                <li>Validated designs with representatives while controlling scope.</li>
+                <li>Designed validation run with both seq depth on gRNA with low, medium and high editing efficiencies.</li>
+                <li>Since the editing efficiency then was much better, so both seq depth yielded similar biological conclusions.</li>
+                <li>Worked closely with discovery scientists to align on validation criteria.</li>
               </ul>
             </div>
             <div class="block">
               <h4>Result</h4>
               <ul>
-                <li>Dashboard delivered on time.</li>
-                <li>Stakeholders used a single platform with tailored views.</li>
-                <li>Ad-hoc requests and manual report generation dropped.</li>
+                <li>The results showed similar biological conclusions across different sequencing depths.</li>
+                <li>All stakeholders are aligned with the new seq depth and believe it is sufficient.</li>
+                <li>3X speed. 5X cheaper. 5x larger capacity. </li>
               </ul>
             </div>
             <div class="block">
               <h4>Closing Insight</h4>
-              <p>Shared data plus flexible exploration resolved conflicts and preserved delivery speed.</p>
+              <p>It is important to earn alignment through data and 
+                design changes that respect both scientific rigor and operational reality.</p>
             </div>
           </div>
           <div class="qa">
           <h4>Probing Questions & Strong Answers</h4>
           <dl>
-            <dt>Q1: What created the stakeholder conflict?</dt>
-            <dd>A1: Each group needed different levels of detail from the same data.</dd>
-            <dt>Q2: How did you keep data consistent?</dt>
-            <dd>A2: I built the dashboard on a single shared data source.</dd>
-            <dt>Q3: What design choice addressed differing needs?</dt>
-            <dd>A3: Role-based views with interactive exploration tools.</dd>
-            <dt>Q4: How did you keep delivery on time?</dt>
-            <dd>A4: Validated with representatives while tightly controlling scope.</dd>
+            <dt>Q1: How did you manage the risk of changing a validated protocol?</dt>
+            <dd>A1: By defining success criteria with the discovery team upfront and testing across a range of biological conditions. 
+              We didn’t assume uniform performance—we intentionally included low-efficiency cases to stress-test the change.</dd>
+            <dt>Q2: What if the validation had failed?</dt>
+            <dd>A2: Then we would have kept the original depth. 
+              The goal wasn’t to force optimization—it was to determine what was scientifically sufficient. 
+              The validation allowed us to make a confident decision either way. but i know statistically the validation should work.</dd>
+            <dt>Q3: How did you ensure trust from discovery scientists?</dt>
+            <dd>A3: I involved them early in study design and interpretation, rather than presenting results after the fact. 
+              That turned the change from an operational proposal into a shared scientific conclusion..</dd>
+            <dt>Q4: What does this say about your production mindset</dt>
+            <dd>A4: Production isn’t about cutting corners—it’s about continuously re-evaluating assumptions as biology, technology, 
+              and scale evolve, and adjusting systems accordingly while preserving data integrity.</dd>
             <dt>Q5: What operational impact followed?</dt>
-            <dd>A5: Fewer ad-hoc requests and increased alignment around shared data.</dd>
+            <dd>A5: faster, cheaper and higher capacity.</dd>
           </dl>
         </div>
         </div>
