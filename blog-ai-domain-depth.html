@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domain Depth Is Your Multiplier - Mingsheng Qi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0e27;
+            --bg-card: #1a1f3a;
+            --accent-blue: #00d4ff;
+            --accent-green: #00ff88;
+            --accent-purple: #b24bf3;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a6c9;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-blue);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--accent-blue);
+            border-radius: 8px;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-bottom: 2rem;
+        }
+
+        .back-btn:hover {
+            background: var(--accent-blue);
+            color: var(--bg-dark);
+            transform: translateX(-5px);
+        }
+
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 5% 5rem;
+        }
+
+        .article-header {
+            margin-bottom: 3rem;
+        }
+
+        .article-category {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .article-excerpt {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            border-left: 3px solid var(--accent-blue);
+            padding-left: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .article-content {
+            font-size: 1.05rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content h2 {
+            color: var(--text-primary);
+            font-size: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .article-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+        }
+
+        .article-content h3 {
+            color: var(--accent-blue);
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-content blockquote {
+            border-left: 3px solid var(--accent-purple);
+            padding: 1rem 1.5rem;
+            margin: 2rem 0;
+            background: var(--bg-card);
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.8rem;
+        }
+
+        .article-content strong {
+            color: var(--text-primary);
+        }
+
+        .highlight-box {
+            background: var(--bg-card);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h4 {
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .highlight-box p,
+        .highlight-box li {
+            color: var(--text-secondary);
+        }
+
+        .highlight-box ul,
+        .highlight-box ol {
+            padding-left: 1.5rem;
+        }
+
+        .highlight-box li {
+            margin-bottom: 0.5rem;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid rgba(0, 212, 255, 0.15);
+            margin: 3rem 0;
+        }
+
+        .share-section {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .share-section h3 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            padding: 0.8rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--accent-blue);
+            border-radius: 8px;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .share-btn:hover {
+            background: var(--accent-blue);
+            color: var(--bg-dark);
+            transform: translateY(-3px);
+        }
+
+        .related-posts {
+            margin-top: 4rem;
+            padding: 3rem;
+            background: var(--bg-card);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .related-posts h3 {
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .related-card {
+            padding: 1.5rem;
+            background: var(--bg-dark);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+        }
+
+        .related-card:hover {
+            border-color: var(--accent-green);
+            transform: translateY(-5px);
+        }
+
+        .related-card h4 {
+            color: var(--accent-green);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .related-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .author-note {
+            margin-top: 3rem;
+            padding: 1.5rem 2rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid rgba(178, 75, 243, 0.3);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+            color: var(--text-secondary);
+            margin-top: 5rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .article-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="./#home">Home</a></li>
+            <li><a href="./#about">About</a></li>
+            <li><a href="./#blog">Blog</a></li>
+            <li><a href="./#portfolio">Portfolio</a></li>
+            <li><a href="./#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <article>
+        <a href="./#blog" class="back-btn">← Back to Blog</a>
+
+        <header class="article-header">
+            <span class="article-category">Career Insights</span>
+            <h1>Domain Depth Is Your Multiplier: A Cautionary Note on AI in Computational Biology</h1>
+
+            <div class="article-meta">
+                <span class="meta-item">📅 February 23, 2026</span>
+                <span class="meta-item">⏱️ 10 min read</span>
+                <span class="meta-item">✍️ Mingsheng Qi, Ph.D.</span>
+            </div>
+
+            <p class="article-excerpt">
+                AI tools are reshaping how computational biologists work. But a quiet failure mode is emerging — and it's costing teams more than they realize.
+            </p>
+        </header>
+
+        <div class="article-content">
+
+            <p>I've seen it happen more than once.</p>
+
+            <p>
+                A computational biologist submits a repo. All the rules are followed, checklist complete. The README is there. The Confluence page documenting the science behind it is there. It looks "good" on the surface. Except the README and Confluence page were generated by AI tools after a brief scan of the code. After all, it had been a long day.
+            </p>
+
+            <p>
+                The lead reviewer is busy. Instead of reading, they paste the documentation into an AI summarizer, skim the output, and sign off. The science context — the caveats, the edge cases, the <em>why behind the how</em> — got compressed into bullet points that looked clean. Problem buried.
+            </p>
+
+            <p>
+                Three months later, the next user opens that repo. Something breaks. Time is lost. Debugging begins. And at the root of it? A review that never actually happened.
+            </p>
+
+            <p>
+                This is the story I want to tell. Not to argue against AI — I use it daily — but to name a failure mode that's growing quietly in our field, and to make the case for why domain depth isn't a nice-to-have in the age of AI. It's your primary asset.
+            </p>
+
+            <hr class="divider">
+
+            <h2>The Signal Dilution Problem</h2>
+
+            <p>
+                What happened in that repo story wasn't a tools problem. It wasn't even really a process problem. It was a <em>signal dilution</em> problem.
+            </p>
+
+            <p>
+                Think about what actually occurred: the original author understood the science but offloaded the documentation to AI with minimal input. The reviewer understood their role was to catch issues but offloaded comprehension to AI. The end user received a document that had been filtered twice through tools that had no idea what signal mattered — and inherited the consequences.
+            </p>
+
+            <p>
+                Each AI-assisted shortcut trimmed a little more signal from the chain. By the time the documentation reached the person who needed it most, there was nothing left worth using.
+            </p>
+
+            <p>
+                This is the classic computer science principle of garbage in, garbage out — but in a slower, less visible form. In traditional GIGO, bad input produces obviously bad output. In this new version, the output <em>looks</em> fine. It passes the checklist. It has the right sections. It just doesn't contain the things that matter.
+            </p>
+
+            <blockquote>
+                "The danger isn't AI producing obviously wrong output. It's AI producing plausible output that happens to be hollow."
+            </blockquote>
+
+            <p>
+                This distinction matters a great deal in computational biology, where documentation isn't just administrative overhead. It's the knowledge transfer layer between the person who built something and everyone who uses it afterward. When that layer degrades, the cost doesn't show up immediately — it shows up three months later, when a pipeline breaks in production and no one knows why the author made a specific modeling choice, or why a particular edge case was excluded, or what biological assumption is baked into step four of the workflow.
+            </p>
+
+            <h2>Why This Field Is Particularly Exposed</h2>
+
+            <p>
+                Every discipline that uses AI tools faces some version of this risk. But computational biology sits at a unique intersection that makes signal dilution especially costly.
+            </p>
+
+            <h3>The Methods Are Specialized</h3>
+
+            <p>
+                A README for a variant-calling pipeline isn't the same as documentation for a web API. It requires the author to understand the biological assumptions behind the aligner, the statistical model used for genotyping, the population-specific parameters that were tuned, and the failure modes that only show up in certain data types. AI tools don't know your organism. They don't know your experimental context. They can scaffold documentation — but they cannot supply the domain knowledge that makes documentation useful.
+            </p>
+
+            <h3>The Consumers Are Diverse</h3>
+
+            <p>
+                A repo in a bioinformatics team might be used by a bench biologist running a secondary analysis, a data scientist building a downstream model, a regulatory scientist preparing a submission, or a new hire trying to understand the group's standard workflow. Each of them needs something different from the documentation. Hollow documentation fails all of them, in different ways.
+            </p>
+
+            <h3>The Review Chain Is Often Thin</h3>
+
+            <p>
+                Many computational biology teams operate lean. There may be one or two people capable of meaningfully reviewing a complex pipeline submission. When those reviewers use AI to shortcut the comprehension step, there is no redundancy. No one caught it. That's how three months pass before the failure surfaces.
+            </p>
+
+            <h2>AI as Amplifier, Not Substitute</h2>
+
+            <p>
+                Here's the mental model I've come to rely on: <strong>AI amplifies your input. It doesn't replace it.</strong>
+            </p>
+
+            <p>
+                This is both a practical truth and a strategic one. If you bring deep domain knowledge to an AI tool, it can help you work significantly faster. It can scaffold your code, accelerate your literature review, suggest approaches you hadn't considered, and help you communicate results more clearly. These are real productivity gains and I don't want to minimize them.
+            </p>
+
+            <p>
+                But if you bring shallow input — a vague prompt, a quick paste, a brief scan — the AI gives you shallow output dressed up in confident language. It will generate a plausible README, but it won't know which caveat was critical. It will write a summary, but it won't know which finding was the signal and which was noise. The quality of what you get out is bounded by the quality of what you put in.
+            </p>
+
+            <p>
+                This is why I use the phrase <strong>domain depth as your multiplier</strong>. The deeper your understanding of the biology, the statistics, and the theory behind what you're building, the more effectively you can direct AI tools, evaluate their outputs, and catch the places where they quietly went wrong.
+            </p>
+
+            <blockquote>
+                "Without domain depth, you're not using AI. You're being used by it."
+            </blockquote>
+
+            <h2>What This Looks Like in Practice</h2>
+
+            <p>
+                Let me be specific, because the abstract version of this argument is easy to agree with and equally easy to ignore.
+            </p>
+
+            <h3>On AI-Assisted Coding</h3>
+
+            <p>
+                Tools like GitHub Copilot and Claude can write substantial amounts of code for bioinformatics pipelines. That code will often run. It may even produce results. But if you don't understand the algorithm underlying a normalization step, you won't notice when the AI implements it incorrectly for your data type. If you don't understand the assumptions of a statistical model, you won't catch when the AI applies it to a use case where those assumptions don't hold.
+            </p>
+
+            <p>
+                Code that runs is not the same as code that is correct. The ability to distinguish between the two requires domain knowledge that no AI tool currently provides.
+            </p>
+
+            <h3>On AI-Assisted Documentation</h3>
+
+            <p>
+                Generated documentation is often syntactically correct and semantically empty. It will have a section called "Usage" and a section called "Dependencies" and possibly a section called "Notes." What it won't have, unless you put it there, is the biological rationale for parameter choices, the edge cases discovered during development, the assumptions that downstream users need to know about, and the failure modes that aren't obvious from the code itself. That content has to come from you. AI can format it. It cannot generate it.
+            </p>
+
+            <h3>On AI-Assisted Review</h3>
+
+            <p>
+                This is the failure mode I find most concerning. When a reviewer uses AI to summarize documentation before signing off, they are abdicating the review. Summarization compresses; it doesn't evaluate. It cannot tell you whether the biological interpretation is sound, whether the statistical approach is appropriate for the data structure, or whether a critical caveat was buried in paragraph four.
+            </p>
+
+            <div class="highlight-box">
+                <h4>Review requires comprehension. Comprehension requires engagement.</h4>
+                <p>There is no shortcut here that doesn't cost you something downstream. When you use AI to summarize instead of read, you are not reviewing — you are creating the appearance of review. The difference matters enormously when something breaks.</p>
+            </div>
+
+            <h2>The Floor You Cannot Go Below</h2>
+
+            <p>
+                There is a practical floor below which you cannot reduce your domain engagement without losing the ability to do your job.
+            </p>
+
+            <p>
+                I want to be direct about this because the pressure — especially on students entering the field and mid-career folks under constant deadline pressure — is to treat AI as a way to do more with less. And to some extent, it is. But there is a version of "less" that crosses a threshold. On the other side of that threshold, you are no longer a computational biologist using AI tools. You are an interface between a manager and a language model, and you have lost the ability to validate, question, or catch failures.
+            </p>
+
+            <p>Here are some reliable signals that you are approaching that threshold:</p>
+
+            <div class="highlight-box">
+                <h4>Warning Signs of Over-Delegation</h4>
+                <ul>
+                    <li>You can generate output but cannot explain the methodology behind it</li>
+                    <li>You can run a pipeline but cannot describe what each step is doing biologically</li>
+                    <li>You can write documentation but cannot verify whether it is accurate</li>
+                    <li>You sign off on analyses you haven't actually read</li>
+                </ul>
+            </div>
+
+            <p>
+                If any of these describe your current practice, the risk isn't abstract — it's compounding quietly, and it will surface at the worst possible moment.
+            </p>
+
+            <h2>What "Putting Signal In" Actually Looks Like</h2>
+
+            <p>
+                The corrective isn't to stop using AI. The corrective is to be intentional about where your domain knowledge has to enter the process, and to protect that entry point.
+            </p>
+
+            <h3>For Documentation</h3>
+
+            <p>
+                Write the caveats yourself. Not the structure, not the headers — the actual scientific caveats that a future user needs to know. Give that to the AI and let it format and expand. What you get back will be useful because what you put in was specific.
+            </p>
+
+            <h3>For Code Review</h3>
+
+            <p>
+                Read the logic, not the summary. You don't have to read every line. But you need to read enough to understand the approach and verify that it matches your biological intent. AI can help you understand code you didn't write — use it to accelerate comprehension, not replace it.
+            </p>
+
+            <h3>For Your Own Coding</h3>
+
+            <p>
+                Start from a clear biological or algorithmic specification before you ask the AI to implement anything. The clearer your understanding of what you need, the better the AI's output will be — and the better equipped you'll be to catch the places where it drifted from your intent.
+            </p>
+
+            <h3>For Review Responsibilities</h3>
+
+            <p>
+                Accept that some things cannot be delegated. The AI summary is a starting point, not a conclusion. If you're responsible for quality, you're responsible for comprehension. Those two things cannot be separated.
+            </p>
+
+            <h2>A Note for Students and Early-Career Scientists</h2>
+
+            <p>
+                If you're entering this field now, you are inheriting a remarkable set of tools. AI-assisted coding, automated literature synthesis, intelligent pipeline scaffolding — none of this existed when I started. Used well, these tools can accelerate your development significantly.
+            </p>
+
+            <p>
+                But here is the trap I want you to avoid: <strong>using AI to skip the part where you build domain expertise.</strong>
+            </p>
+
+            <p>
+                The expertise isn't just what makes you good at using AI tools. It's what makes you valuable in ways AI cannot replicate. Your ability to ask the right biological question, to sense when a result looks too clean to be true, to understand why a modeling choice matters — these are the skills that will distinguish you in this field for the next decade, because they are precisely the skills that AI cannot supply on your behalf.
+            </p>
+
+            <blockquote>
+                "Invest aggressively in domain expertise. Let AI accelerate everything else."
+            </blockquote>
+
+            <h2>Closing</h2>
+
+            <p>
+                The story I opened with isn't dramatic. No one lost their job. No critical experiment failed catastrophically. Three months of debugging time was lost, some trust was eroded, and a team had a difficult conversation about review standards.
+            </p>
+
+            <p>
+                But multiply that story across a team of ten people, across a year of submissions, across an organization that has quietly normalized AI-as-shortcut at every step of the knowledge chain — and the cost becomes significant. Not in any single incident, but in a steady, invisible degradation of the signal that makes complex scientific work possible.
+            </p>
+
+            <p>
+                AI amplifies your input. It doesn't replace it. The value you create scales with what you bring to the table — your biological intuition, your understanding of the methods, your ability to sense when something looks too clean to be true.
+            </p>
+
+            <p><strong>Put signal in. Control the output. That's the job.</strong></p>
+
+        </div>
+
+        <div class="author-note">
+            Mingsheng Qi, Ph.D. has spent 15+ years building and leading bioinformatics operations at the intersection of molecular biology, cloud computing, and data science. He writes about career development, computational strategy, and the evolving role of AI in the life sciences.
+        </div>
+
+        <div class="share-section">
+            <h3>Share this post</h3>
+            <div class="share-buttons">
+                <a href="#" class="share-btn">🐦 Twitter</a>
+                <a href="#" class="share-btn">💼 LinkedIn</a>
+                <a href="#" class="share-btn">📧 Email</a>
+            </div>
+        </div>
+
+        <div class="related-posts">
+            <h3>Related Posts</h3>
+            <div class="related-grid">
+                <a href="./blog-bench-to-cloud.html" class="related-card">
+                    <h4>From Bench to Cloud</h4>
+                    <p>Navigating the bioinformatics career path from wet lab to computational leadership.</p>
+                </a>
+                <a href="./blog-communication.html" class="related-card">
+                    <h4>The Art of Cross-Functional Communication</h4>
+                    <p>How to translate between biologists, engineers, and business stakeholders.</p>
+                </a>
+                <a href="./blog-reproducible-pipelines.html" class="related-card">
+                    <h4>The ROI of Reproducible Pipelines</h4>
+                    <p>Why investing in automated workflows pays off long-term.</p>
+                </a>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <p>&copy; 2026 Mingsheng Qi, Ph.D. | <a href="./" style="color: var(--accent-blue); text-decoration: none;">Return to Home</a></p>
+    </footer>
+</body>
+</html>
