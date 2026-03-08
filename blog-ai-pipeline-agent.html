@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Can Build Your Pipeline. But Who Designs the Agent That Catches What It Misses? - Mingsheng Qi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0e27;
+            --bg-card: #1a1f3a;
+            --accent-blue: #00d4ff;
+            --accent-green: #00ff88;
+            --accent-purple: #b24bf3;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a6c9;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-blue);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--accent-blue);
+            border-radius: 8px;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-bottom: 2rem;
+        }
+
+        .back-btn:hover {
+            background: var(--accent-blue);
+            color: var(--bg-dark);
+            transform: translateX(-5px);
+        }
+
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 5% 5rem;
+        }
+
+        .article-header {
+            margin-bottom: 3rem;
+        }
+
+        .article-category {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .article-excerpt {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            border-left: 3px solid var(--accent-blue);
+            padding-left: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .article-content {
+            font-size: 1.05rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content h2 {
+            color: var(--text-primary);
+            font-size: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .article-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+        }
+
+        .article-content h3 {
+            color: var(--accent-blue);
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-content blockquote {
+            border-left: 3px solid var(--accent-purple);
+            padding: 1rem 1.5rem;
+            margin: 2rem 0;
+            background: var(--bg-card);
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.8rem;
+        }
+
+        .article-content strong {
+            color: var(--text-primary);
+        }
+
+        .highlight-box {
+            background: var(--bg-card);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h4 {
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .highlight-box p,
+        .highlight-box li {
+            color: var(--text-secondary);
+        }
+
+        .highlight-box ul,
+        .highlight-box ol {
+            padding-left: 1.5rem;
+        }
+
+        .highlight-box li {
+            margin-bottom: 0.5rem;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid rgba(0, 212, 255, 0.15);
+            margin: 3rem 0;
+        }
+
+        .share-section {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .share-section h3 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            padding: 0.8rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--accent-blue);
+            border-radius: 8px;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .share-btn:hover {
+            background: var(--accent-blue);
+            color: var(--bg-dark);
+            transform: translateY(-3px);
+        }
+
+        .related-posts {
+            margin-top: 4rem;
+            padding: 3rem;
+            background: var(--bg-card);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .related-posts h3 {
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .related-card {
+            padding: 1.5rem;
+            background: var(--bg-dark);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+        }
+
+        .related-card:hover {
+            border-color: var(--accent-green);
+            transform: translateY(-5px);
+        }
+
+        .related-card h4 {
+            color: var(--accent-green);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .related-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .author-note {
+            margin-top: 3rem;
+            padding: 1.5rem 2rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid rgba(178, 75, 243, 0.3);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+            color: var(--text-secondary);
+            margin-top: 5rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .article-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="./#home">Home</a></li>
+            <li><a href="./#about">About</a></li>
+            <li><a href="./#blog">Blog</a></li>
+            <li><a href="./#portfolio">Portfolio</a></li>
+            <li><a href="./#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <article>
+        <a href="./#blog" class="back-btn">← Back to Blog</a>
+
+        <header class="article-header">
+            <span class="article-category">Technical Deep-Dive</span>
+            <h1>AI Can Build Your Pipeline. But Who Designs the Agent That Catches What It Misses?</h1>
+
+            <div class="article-meta">
+                <span class="meta-item">📅 March 4, 2026</span>
+                <span class="meta-item">⏱️ 14 min read</span>
+                <span class="meta-item">✍️ Mingsheng Qi, Ph.D.</span>
+            </div>
+
+            <p class="article-excerpt">
+                AI-assisted pipeline construction is now table stakes in computational biology. The real question is what happens when your agent hits a failure mode nobody thought to encode — and who's responsible for preventing that.
+            </p>
+        </header>
+
+        <div class="article-content">
+
+            <p>AI can build your bioinformatics pipeline. With the right agent setup, it can even help optimize it.</p>
+
+            <p>So where does human expertise still matter?</p>
+
+            <p>It matters upstream, before the agent runs. And that's a more important place than most people realize.</p>
+
+            <p>This post is about the gap between building a pipeline and operating one — and why that gap, despite rapid advances in AI tooling, still requires hard-won domain knowledge that no model can supply on your behalf. If you're a student entering the field, a mid-career bioinformatician feeling pressure to move faster, or a team lead responsible for production sequencing workflows, this is worth sitting with.</p>
+
+            <h2>The Current State: What AI Can Actually Do</h2>
+
+            <p>Let's be precise about what AI-assisted pipeline development looks like in 2026, because vague claims in either direction aren't useful.</p>
+
+            <p>AI tools can scaffold a Nextflow or Snakemake workflow from a description of your analysis goals. They can write the process blocks, define the channel logic, handle input/output routing, and produce code that is, in many cases, syntactically correct and logically coherent on the first pass. For standard workflows — variant calling, RNA-seq quantification, 16S amplicon processing, genome assembly — the scaffolding quality is genuinely good.</p>
+
+            <p>Beyond construction, AI agents with the right tool integrations can do meaningful optimization work. Give an agent access to AWS Cost Explorer, Nextflow execution traces, CloudWatch metrics, and EC2 instance pricing data, and it can identify I/O bottlenecks, flag spot interruption patterns, suggest instance type changes, recommend checkpoint strategies, and compare cost efficiency across runs. These are not trivial capabilities. Teams that have built these agent workflows are moving faster and spending less.</p>
+
+            <p>So if you're waiting for me to argue that AI is overhyped in this context — I'm not going to. The productivity gains are real. The optimization capabilities are real. The question isn't whether AI is useful here. It's where the boundary of that usefulness sits, and what lives on the other side.</p>
+
+            <h2>What Happens When the Batch Scales</h2>
+
+            <p>Here's a scenario I've seen play out in production.</p>
+
+            <p>A researcher builds a variant-calling pipeline with AI assistance. The code is clean. The process logic is solid. They go further than most — they instrument the pipeline with extensive logging from the start, feed runtime traces back into an AI agent during test runs, and let the agent interrogate the data. The agent spots an I/O bottleneck in the alignment step. It flags a pattern of spot instance interruptions during peak hours in a specific AWS region. It recommends a config adjustment — switching from gp2 to gp3 EBS volumes, adjusting the Nextflow executor queue size, shifting the spot request to a different availability zone.</p>
+
+            <p>They implement the changes. The pipeline runs faster and cheaper. It looks production-ready.</p>
+
+            <p>Then the batch scales to 200 samples. A failure surfaces that none of the tooling caught.</p>
+
+            <p>The scatter-gather step hangs — not consistently, but intermittently — on large chromosomes in specific samples. The investigation takes days. The root cause: an interaction between how that specific reference genome is fragmented at repetitive regions, the EBS throughput ceiling on the instance type chosen for cost efficiency, and the scatter strategy that worked fine at 20 samples but breaks at a specific combination of input size and concurrency. No log captured this interaction. No agent flagged it. Because nobody thought to instrument that boundary in the first place.</p>
+
+            <p>The cost — in compute time, in engineer time, in delayed results — is significant.</p>
+
+            <h2>The Surviving Gap</h2>
+
+            <p>This is what I want to focus on, because it's the gap that matters most and that's least visible in conversations about AI and bioinformatics.</p>
+
+            <p>An agent's skills are defined by whoever builds it. That's not a limitation of a specific tool or a temporary gap that will close with the next model release. It's a structural property of how agents work. An agent can recognize failure modes that were anticipated at design time. It can apply tools that someone decided to give it. It can ask questions that were encoded into its instruction set.</p>
+
+            <p>It cannot discover what nobody thought to encode. It cannot ask the question that wasn't built into its toolset. It cannot instrument a boundary that wasn't understood to be fragile before the pipeline ran.</p>
+
+            <p>This is different from saying AI can't optimize. It can. The limitation is more specific and more interesting: AI agents can only see what they were designed to look for, and the design of a powerful agent requires exactly the kind of operational depth that only comes from running pipelines at scale and watching them fail.</p>
+
+            <p>The person who builds an agent that catches the expensive, non-obvious failures already knows what those failures look like. They've seen the scatter-gather hang. They've debugged the memory pressure that surfaces only at specific sample scales. They understand how EBS throughput interacts with scatter strategy in ways that don't show up in the Nextflow documentation. They've read enough cost anomaly reports to know which patterns are meaningful and which are noise.</p>
+
+            <p>They bring that knowledge to the agent design. The agent becomes an extension of their expertise — a way to apply it faster and more systematically than they could manually.</p>
+
+            <p>Without that expertise at the design stage, you get an agent that catches the obvious problems while the expensive ones slip through. Which is worse than it sounds, because a pipeline that appears to be running well is harder to question than one that's visibly broken.</p>
+
+            <h2>Why Sequencing Pipelines Are Particularly Unforgiving</h2>
+
+            <p>Not all bioinformatics work carries the same operational risk. But production sequencing pipelines sit at a particularly demanding intersection of complexity, cost, and consequence.</p>
+
+            <p>The data is heterogeneous in ways that matter. Reference genome fragmentation at repetitive regions varies by organism, by assembly version, and by the specific tools used to generate the assembly. Input BAM quality varies by library prep protocol, sequencing chemistry, and sample handling. These variations interact with pipeline logic in ways that are predictable if you know what to look for — and completely opaque if you don't.</p>
+
+            <p>The compute costs are non-trivial and easy to mis-attribute. A poorly configured scatter strategy on a 200-sample WGS batch can add thousands of dollars in compute cost while producing results that look correct. The cost anomaly may not surface in aggregate reporting. It will show up in per-step execution traces — if you know how to read them.</p>
+
+            <p>The failure modes are often silent. A pipeline step that produces slightly wrong output due to an incorrect parameter setting will not throw an error. It will write plausible output files that pass format validation. The error propagates downstream, compounds, and surfaces as a biological interpretation problem months later when someone questions a variant call that doesn't replicate. By then, the pipeline has run on dozens of additional samples.</p>
+
+            <p>Spot instance economics add a layer of probabilistic complexity. AWS spot instances can reduce compute costs by 60-70% on appropriate workloads — but only if the pipeline is architected to handle interruptions gracefully. The right checkpointing strategy depends on step duration distributions, data transfer costs, and the retry economics of your specific workflow. Getting this wrong doesn't cause obvious failures. It causes invisible inefficiency that accumulates over hundreds of runs.</p>
+
+            <p>All of this is manageable. But managing it requires the ability to reason about the full stack — from biological data characteristics through pipeline logic to cloud infrastructure economics — in an integrated way. AI tools assist with each layer in isolation. The integration is the expertise.</p>
+
+            <h2>Domain Expertise Has Moved Upstream</h2>
+
+            <p>Here's the reframe that I think matters most for how you think about your own development in this field.</p>
+
+            <p>AI hasn't reduced the value of deep operational knowledge in bioinformatics. It's changed where that knowledge is applied.</p>
+
+            <p>Previously, domain expertise showed up in the construction phase — knowing how to write efficient Nextflow processes, how to structure channel logic for complex workflows, how to configure resource requirements for different step types. AI has made that phase faster and more accessible. A researcher with solid biological knowledge but limited Nextflow experience can now build a functional pipeline in days rather than weeks.</p>
+
+            <p>What AI hasn't touched is the upstream design work: deciding what the pipeline needs to handle, what failure modes need to be anticipated, what the agent monitoring it needs to be able to see. That work requires operational experience that can only be accumulated by running pipelines in production, debugging real failures, and developing the intuition to know which edge cases are worth building defenses for.</p>
+
+            <p>Domain expertise hasn't been replaced. It's moved upstream. It now determines what your AI agents can and cannot see.</p>
+
+            <p>This is actually a more consequential position than it used to be. The person who understands the failure modes is now the person who controls the quality ceiling for the entire AI-assisted workflow. Their knowledge gets encoded into the agent, multiplied across every run, and applied automatically at a scale that wasn't possible before.</p>
+
+            <p>That's a significant source of leverage. But it only exists if the underlying knowledge is there.</p>
+
+            <h2>What This Means for Building Your Skills</h2>
+
+            <p>If you're a student or early-career computational biologist, the practical implication is this: the skills that most need deliberate investment are the ones that AI doesn't accelerate — because those are the skills that determine how well your AI tooling performs.</p>
+
+            <div class="highlight-box">
+                <h4>Skills Worth Building</h4>
+                <ul>
+                    <li><strong>Run pipelines in real environments.</strong> Not just local test runs on small datasets. Get access to cloud compute and run your workflows at the scale where the interesting failures surface. The failures are where the learning is.</li>
+                    <li><strong>Read execution traces, not just results.</strong> Nextflow generates detailed execution reports — CPU usage, memory consumption, duration, and cost per task. Develop the habit of reading them after every run, even when the pipeline completes successfully. You're building a mental model of what normal looks like, which is the only way to recognize abnormal when it appears.</li>
+                    <li><strong>Understand the compute economics.</strong> Learn how AWS pricing actually works for genomics workloads. Understand the tradeoffs between on-demand and spot instances, between EBS volume types, between instance families for different workload types. This knowledge is what makes cost optimization decisions defensible rather than arbitrary.</li>
+                    <li><strong>Study your failure modes systematically.</strong> When something breaks, don't just fix it and move on. Document what broke, why it broke, and what you would need to have logged to catch it earlier. That documentation is the raw material for building better agents.</li>
+                    <li><strong>Learn to read the stack across levels.</strong> The most valuable skill in production pipeline work is the ability to trace a problem from a biological artifact in the data through the pipeline logic to the infrastructure behavior that caused it. This cross-level reasoning is currently beyond AI — and it's what makes the difference between an engineer who fixes symptoms and one who eliminates failure modes.</li>
+                </ul>
+            </div>
+
+            <h2>A Note on Agent Design as a Career Skill</h2>
+
+            <p>One thing worth naming explicitly: designing AI agents for bioinformatics workflows is becoming a distinct and valuable skill, and it rewards exactly the kind of operational depth described above.</p>
+
+            <p>An agent that monitors a production sequencing pipeline needs to know which metrics are meaningful, which thresholds warrant alerts, which failure patterns are recoverable and which require human intervention, and how to present findings in a way that supports fast decision-making. Designing that agent is a knowledge engineering problem. The quality of the output is bounded by the quality of the domain knowledge encoded into it.</p>
+
+            <p>This is a leverage point worth thinking about deliberately. If you invest in building genuine operational expertise — running pipelines, debugging failures, understanding the compute economics — you can encode that expertise into agents that apply it at scale. Your knowledge doesn't just help you work faster. It shapes the quality ceiling for everyone who uses the infrastructure you build.</p>
+
+            <blockquote>
+                That's a different kind of career value than being good at writing Nextflow processes. And it's the kind that compounds.
+            </blockquote>
+
+            <h2>Closing</h2>
+
+            <p>The scenario I described — the scatter-gather hang that surfaces at scale, the failure nobody knew to instrument for — is not an argument against AI-assisted pipeline development. It's an argument for understanding what AI assistance requires from you.</p>
+
+            <p>Building a pipeline with AI is faster than it used to be. Building an agent that monitors it intelligently is possible in ways that weren't practical two years ago. These are genuine advances and they're worth using.</p>
+
+            <p>But the loop only closes if you know what questions to ask. The agent catches what it was designed to catch. The design reflects the operational knowledge of whoever built it. And that knowledge — the ability to anticipate failure modes, instrument the right boundaries, and reason across the full stack from biological data to cloud infrastructure — is still built the old way. By running things at scale. By watching them break. By fixing them and understanding why they broke.</p>
+
+            <p><strong>Build with AI. Design your agents with expertise.</strong></p>
+
+            <p>That's still the job.</p>
+
+        </div>
+
+        <div class="author-note">
+            Mingsheng Qi, Ph.D. leads bioinformatics operations at Solis Agrosciences, where he designs and operates production-scale NGS pipelines on AWS. He writes about computational strategy, pipeline engineering, and the evolving role of AI in the life sciences.
+        </div>
+
+        <div class="share-section">
+            <h3>Share this post</h3>
+            <div class="share-buttons">
+                <a href="#" class="share-btn">🐦 Twitter</a>
+                <a href="#" class="share-btn">💼 LinkedIn</a>
+                <a href="#" class="share-btn">📧 Email</a>
+            </div>
+        </div>
+
+        <div class="related-posts">
+            <h3>Related Posts</h3>
+            <div class="related-grid">
+                <a href="./blog-ai-domain-depth.html" class="related-card">
+                    <h4>Domain Depth Is Your Multiplier</h4>
+                    <p>Why domain depth isn't a nice-to-have in the age of AI—it's your primary asset.</p>
+                </a>
+                <a href="./blog-custom-tools.html" class="related-card">
+                    <h4>Dangerous Words: "Let's just build a custom tool."</h4>
+                    <p>When standardization beats innovation in bioinformatics.</p>
+                </a>
+                <a href="./blog-reproducible-pipelines.html" class="related-card">
+                    <h4>The ROI of Reproducible Pipelines</h4>
+                    <p>Why investing in automated workflows pays off long-term.</p>
+                </a>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <p>&copy; 2026 Mingsheng Qi, Ph.D. | <a href="./" style="color: var(--accent-blue); text-decoration: none;">Return to Home</a></p>
+    </footer>
+</body>
+</html>
